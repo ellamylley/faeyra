@@ -3,8 +3,8 @@ class Jogador {
     #nome;
     #dinheiro;
 
-    constructor(id, nome, dinheiro) {
-        this.#id = id;
+    constructor(nome, dinheiro) {
+        this.#id;
         this.#nome = nome;
         this.#dinheiro = dinheiro;
     }
@@ -29,3 +29,5 @@ class Jogador {
         this.#dinheiro = novoDinheiro;
     }
 }
+
+module.exports = Jogador;
