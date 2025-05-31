@@ -18,6 +18,10 @@
         </a>
     </header>
 
+    <div id="mesa">
+        <img src="/faeyra-main/front-end/imagens/mesa.png">
+    </div>
+
     <div id="abrirCalculadora">
         <img src="/faeyra-main/front-end/imagens/abaco.png">
     </div>
@@ -34,10 +38,15 @@
         <img src="/faeyra-main/front-end/imagens/personagemTeste.png">
     </div>
 
-    <div id="end">
-    <button onclick="moverPersonagem()">Finalizar</button>
-        </div>
+    <div id="start" style="display:flex;">
+        <button onclick="moverPersonagem('entrar');">Iniciar</button>
+    </div>
+
+    <div id="end" style="display: none;">
+        <button onclick="moverPersonagem('sair');">Finalizar</button>
+    </div>
     <script src="../../back-end/calculadora/abrirCalculadora.js"></script>
+     <script src="../../back-end/front-functions/personagemFunctions.js"></script>
 
 </body>
 

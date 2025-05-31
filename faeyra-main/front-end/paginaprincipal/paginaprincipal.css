@@ -1,5 +1,5 @@
 body {
-    background-image: url(/faeyra-main/front-end/imagens/backgroundprincipal.png);
+    background-image: url(/faeyra-main/front-end/imagens/background.png);
     background-color: #97d57e;
     background-size: cover;
     background-repeat: no-repeat;
@@ -14,6 +14,12 @@ body {
     src: url(/faeyra-main/front-end/fontes/Railey-PersonalUse.ttf);
 }
 
+@font-face {
+    font-family: Aubrey;
+    src: url(/front-end/fontes/Aubrey-Regular.ttf)
+}
+
+/* LOGO FAEYRA */
 #logopequena img {
     width: 20%;
     position: absolute;
@@ -21,34 +27,57 @@ body {
     left: 0;
 }
 
+/* MESA */
+
+#mesa {
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+}
+
+#mesa img {
+    width: 100vw;
+    height: 30vw;
+    max-height: 30vh;
+    display: block;
+}
+
+/* CALCULADORA */
 #calculadora {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    
+    z-index: 15;
+
 }
-#calculadora iframe{
+
+#calculadora iframe {
     border: none;
     margin-left: 40px;
 }
 
+/* ABACO */
 #abrirCalculadora {
     cursor: pointer;
     position: fixed;
-    bottom: 50px;
-    right: 150px;
-    z-index: 2;
+    z-index: 5;
+    top: 60vh;
+    left: 70vw;
 }
 
-#abrirCalculadora img{
-    width: 70%;
+#abrirCalculadora img {
+    width: 15vw;
     height: auto;
+    max-height: 30vh;
 }
 
-#fecharCalculadora{
+
+/* BOTÃO FECHAR CALCULADORA (X) */
+#fecharCalculadora {
     color: #40c283;
-    background-color:rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     font-family: Railey;
     cursor: pointer;
     font-size: 40px;
@@ -57,32 +86,50 @@ body {
     margin-top: 80%;
     border: none;
 }
+
+
+/* PERSONAGEM */
 #personagem {
-    position: absolute;
-    top: 29%;
-    left: 150px;
+    position: fixed;
     z-index: 1;
-}
-#personagem img{
-    height: 300px;
-    
+    bottom: 27vh;
 }
 
-#end{
-    display: flex;
+#personagem img {
+    width: 25vw;
+    height: auto;
+    max-width: 100%;
+}
+
+/* BOTÃO INICIAR E FINALIZAR */
+
+#start{
+    justify-content: left;
+    bottom: 5vw;
+    position: fixed;
+    left: 5vw;
+    z-index: 10;
+}
+#end {
     justify-content: right;
-     top:85%;
-     position: relative;
-     right: 20px;
+    bottom: 5vw;
+    position: fixed;
+    right: 5vw;
+    z-index: 10;}
+
+#start button, #end button{
+    width: 25vw;
+    height: 10vw;
+    max-width: 250px;
+    max-height: 70px;
+    color: white;
+    background-color: #14442d;
+    font-family: Aubrey;
+    font-size: clamp(16px, 5vw, 35px);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px;
+    border-style: solid ;
+    border-color: rgb(255, 255, 255)
 }
 
-#end button {
-font-family: Railey;
-    font-size: 30px;
-    background-color: #14442d;
-    color: white;
-    width: 150px;
-    height: 50px;
-    border-radius: 6px;
-    
-}
+
