@@ -9,13 +9,13 @@ function moverPersonagem(entrarOuSair) {
 
   if (acao === "entrar") {
     posicao = -150;
-    destino = 150;
+    destino = 400;
     botaoIniciar.style.display = "none";
     botaoFinalizar.style.display = "flex";
   }
 
   if (acao === "sair") {
-    posicao = 150;
+    posicao = 400;
     destino = 2000;
     botaoFinalizar.style.display = "none";
     botaoIniciar.style.display = "flex";
