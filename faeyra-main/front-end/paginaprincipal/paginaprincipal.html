@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FAEYRA | Página principal</title>
+    <link rel="stylesheet" href="paginaprincipal.css">
+
+</head>
+
+<body>
+
+    <header>
+        <a href="/faeyra-main/front-end/paginainicial/paginaInicial.html" style="text-decoration: none;">
+            <div id="logopequena">
+                <img src="/faeyra-main/front-end/imagens/logopequena.png">
+            </div>
+        </a>
+    </header>
+
+    <div id="abrirCalculadora">
+        <img src="/faeyra-main/front-end/imagens/abaco.png">
+    </div>
+
+    <div id="calculadora" style="display: none;">
+
+        <iframe width="350" src="/faeyra-main/front-end/calculadora/calculadora.html"></iframe>
+
+        <div class="close">
+            <button id="fecharCalculadora"> X </button>
+        </div>
+    </div>
+    <div id="personagem">
+        <img src="/faeyra-main/front-end/imagens/personagemTeste.png">
+    </div>
+
+    <div id="end">
+    <button onclick="moverPersonagem()">Finalizar</button>
+        </div>
+    <script src="../../back-end/calculadora/abrirCalculadora.js"></script>
+
+</body>
+
+</html>

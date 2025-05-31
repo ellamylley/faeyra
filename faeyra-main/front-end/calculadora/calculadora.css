@@ -1,9 +1,5 @@
 body {
-    background-color: #97d57e;
-    background-image: url(/front-end/imagens/background.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: rgba(19, 65, 8, 0);
     height: 100vh;
     overflow: hidden;
     align-items: center;
@@ -31,25 +27,28 @@ button {
     border-style: solid;
     border-color: #000000;
     box-shadow: 8px 8px 8px rgb(19, 65, 8);
-    padding: 20px 40px;
-    width: 252px;
+    padding: 20px 30px;
+    width: 300px;
+    /* display: none;  */
 }
 
 /* DISPLAY */
 .display {
-    margin: 50px 0 60px;
+    margin: 20px 0 40px;
     text-align: right;
-    padding: 0 20px;
+    padding: 0 10px;
+    height: 100px;
     background-color: #97d57e;
     border-style: solid;
-    
+    border-color: #201f1f;
+       
 }
 
 .display input {
     background: transparent;
     border: none;
     color: #000000;
-    font-size: 70px;
+    font-size: 60px;
     font-weight: 400;
     text-align: right;
     width: 100%;
@@ -58,30 +57,27 @@ button {
 .display h2 {
     color: #054e05;
     font-size: 20px;
+    margin-top: 0;
 }
 
 /* ROW GRID */
 .row {
     display: grid;
     grid-template-columns: repeat(4, 25%);
-    margin-bottom: 10px;
 }
 
 /* BUTTON */
 .button {
-    background-color: black;
+    background-color: #000000;
     border: none;
     border-radius: 10px;
     color: #ffffff;
     cursor: pointer;
     font-size: 30px;
     font-weight: 500;
-    height: 50px;
+    height: 60px;
     margin: 2px;
-    transition: all 0.15s ease-in-out;
-    width: 50px;
-    border-style: solid;
-    border-color: #000000;
+    width: 60px;
     box-shadow: 5px 5px 5px #1f995e;
 }
 

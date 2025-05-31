@@ -1,0 +1,88 @@
+body {
+    background-image: url(/faeyra-main/front-end/imagens/backgroundprincipal.png);
+    background-color: #97d57e;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+@font-face {
+    font-family: Railey;
+    src: url(/faeyra-main/front-end/fontes/Railey-PersonalUse.ttf);
+}
+
+#logopequena img {
+    width: 20%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#calculadora {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    
+}
+#calculadora iframe{
+    border: none;
+    margin-left: 40px;
+}
+
+#abrirCalculadora {
+    cursor: pointer;
+    position: fixed;
+    bottom: 50px;
+    right: 150px;
+    z-index: 2;
+}
+
+#abrirCalculadora img{
+    width: 70%;
+    height: auto;
+}
+
+#fecharCalculadora{
+    color: #40c283;
+    background-color:rgba(0,0,0,0);
+    font-family: Railey;
+    cursor: pointer;
+    font-size: 40px;
+    width: 70px;
+    height: 70px;
+    margin-top: 80%;
+    border: none;
+}
+#personagem {
+    position: absolute;
+    top: 29%;
+    left: 150px;
+    z-index: 1;
+}
+#personagem img{
+    height: 300px;
+    
+}
+
+#end{
+    display: flex;
+    justify-content: right;
+     top:85%;
+     position: relative;
+     right: 20px;
+}
+
+#end button {
+font-family: Railey;
+    font-size: 30px;
+    background-color: #14442d;
+    color: white;
+    width: 150px;
+    height: 50px;
+    border-radius: 6px;
+    
+}

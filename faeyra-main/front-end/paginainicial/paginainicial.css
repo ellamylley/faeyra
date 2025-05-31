@@ -1,6 +1,6 @@
 body {
     background-color: #97d57e;
-    background-image: url(/front-end/imagens/background.png);
+    background-image: url(/faeyra-main/front-end/imagens/background.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -8,22 +8,6 @@ body {
     overflow: hidden;
 
 }
-
-/* #left img {
-    position: absolute;
-    top: 0;
-    left: 0;  
-    height: 80%;
-    width: auto; 
-    padding: 20px; 
-}
-
-#right {
-    position: absolute;
-    top: 0;
-    left: 0;
-} */
-
 
 #sobreposicao{
     position: absolute;
@@ -36,7 +20,7 @@ body {
 
 @font-face {
     font-family: Railey;
-    src: url(/front-end/fontes/Railey-PersonalUse.ttf)
+    src: url(/faeyra-main/front-end/fontes/Railey-PersonalUse.ttf)
 }
 
 #logo {
@@ -71,6 +55,7 @@ body {
     top: 345px;
     left: 0;
     width: 100%;
+    height: max-content;
     text-align: center;
     color: #40c283;
     font-size: 2.5em;
@@ -79,8 +64,9 @@ body {
 }
 
 button {
-    height: 100px;
+    height: auto;
     width: 40%;
+    padding: 10px;
     background-color: #1f995e;
     border-radius: 15px;
     border: none;
@@ -90,10 +76,14 @@ button {
     cursor: pointer;
 }
 
-#jogar {
+#botaojogar{
+    margin-top: 30px;
+}
+
+#jogar, #tutorial {
     display: flex;
     justify-content: center;
     height: 100%;
-    margin-bottom: 20px;
-    margin-top: 70px;
+    margin-bottom: 5px;
+    margin-top: 20px;
 }
