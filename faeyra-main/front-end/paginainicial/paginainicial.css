@@ -9,64 +9,55 @@ body {
 
 }
 
-#sobreposicao{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-
 @font-face {
     font-family: Railey;
     src: url(/faeyra-main/front-end/fontes/Railey-PersonalUse.ttf)
 }
 
-#logo {
-    position: relative;
-    width: 700px;
-    height: 400px;
-    margin: auto;
-    margin-bottom: 20px;
-}
-
-#logo img {
-    position: absolute;
-    top: 20;
-    left: 0;
-    width: 700px;
-}
-
-#titulo{
-    position: absolute;
+/* CAMADA TRANSPARENTE */
+#sobreposicao{
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    text-align: center;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+#logo {
+    top: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 200px;
+}
+
+#titulo {
+    position: absolute;
+    z-index: 2;
     color: #1d6140;
-    font-size: 8em;
+    font-size: clamp(3em, 20vw, 8em);
     font-family: Railey;
     text-shadow: 3px 3px 3px hwb(144 4% 86%);
-
+    pointer-events: none;
 }
-#subtitulo{
-    position: absolute;
-    top: 345px;
-    left: 0;
+
+#subtitulo {
+    position: relative;
+    top: 55px; 
     width: 100%;
-    height: max-content;
     text-align: center;
     color: #40c283;
     font-size: 2.5em;
     font-family: Railey;
-    
 }
 
 button {
     height: auto;
-    width: 40%;
+    width: 50%;
+    max-width: 350px;
     padding: 10px;
     background-color: #1f995e;
     border-radius: 15px;
@@ -78,13 +69,12 @@ button {
 }
 
 #botaojogar{
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 #jogar, #tutorial {
     display: flex;
     justify-content: center;
-    height: 100%;
     margin-bottom: 5px;
     margin-top: 20px;
 }
