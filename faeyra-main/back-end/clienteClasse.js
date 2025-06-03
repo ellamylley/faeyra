@@ -3,7 +3,7 @@ class Cliente extends Especie {
     #nome;
     #id_especie;
 
-    constructor(id_cliente, nome_cliente, id_especie, raiva, felicidade, nome_especie) {
+    constructor(id_cliente, nome_cliente, id_especie, raiva, felicidade, nome_especie, satisfacaoMinima) {
         super(id_especie, raiva, felicidade, nome_especie)
         this.#id_cliente = id_cliente;
         this.#nome_cliente = nome_cliente;
@@ -26,3 +26,5 @@ class Cliente extends Especie {
     }
     
 }
+
+module.exports = Cliente

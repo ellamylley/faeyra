@@ -4,11 +4,12 @@ class Especie {
     #raiva;
     #felicidade;
 
-    constructor(nome_especie, raiva, felicidade, id_especie) {
+    constructor(nome_especie, raiva, felicidade, id_especie, satisfacaoMinima) {
         this.#nome_especie = nome_especie;
         this.#id_especie = id_especie;
         this.#raiva = raiva;
         this.#felicidade = felicidade;
+        this.#satisfacaoMinima = satisfacaoMinima
     }
 
     getNome() {
@@ -27,6 +28,10 @@ class Especie {
         return this.#felicidade;
     }
 
+    getSatisfacaoMinima() {
+        return this.#satisfacaoMinima
+    }
+
     setNome(novoNome) {
         this.#nome = novoNome;
     }
@@ -39,3 +44,5 @@ class Especie {
         this.#felicidade = novaFelicidade;
     }
 }
+
+module.exports = Especie
