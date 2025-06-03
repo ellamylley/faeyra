@@ -4,9 +4,9 @@ class Especie {
     #raiva;
     #felicidade;
 
-    constructor(nomeDaEspecie, raiva, felicidade, id) {
-        this.#nome = nomeDaEspecie;
-        this.#id = id;
+    constructor(nome_especie, raiva, felicidade, id_especie) {
+        this.#nome_especie = nome_especie;
+        this.#id_especie = id_especie;
         this.#raiva = raiva;
         this.#felicidade = felicidade;
     }
@@ -16,7 +16,7 @@ class Especie {
     }
 
     getId() {
-        return this.#id;
+        return this.#id_especie;
     }
 
     getRaiva() {

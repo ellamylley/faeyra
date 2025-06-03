@@ -1,16 +1,16 @@
-class Cliente {
-    #id;
+class Cliente extends Especie {
+    #id_cliente;
     #nome;
     #id_especie;
 
-    constructor(id, nome, id_especie) {
-        this.#id = id;
-        this.#nome = nome;
-        this.#id_especie = id_especie;
+    constructor(id_cliente, nome_cliente, id_especie, raiva, felicidade, nome_especie) {
+        super(id_especie, raiva, felicidade, nome_especie)
+        this.#id_cliente = id_cliente;
+        this.#nome_cliente = nome_cliente;
     }
 
-    get id() {
-        return this.#id;
+    get id_cliente() {
+        return this.#id_cliente;
     }
 
     get nome() {
