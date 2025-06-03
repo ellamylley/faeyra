@@ -1,5 +1,5 @@
 const mysql = require('mysql2');
-const Jogador = require('../back-end/jogadorClasse');
+const Jogador = require('../jogadorClasse');
 
 const sql_create_table = `CREATE TABLE db.jogador (
     id BIGINT NOT NULL AUTO_INCREMENT,

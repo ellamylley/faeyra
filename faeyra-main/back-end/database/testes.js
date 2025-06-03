@@ -6,7 +6,7 @@ const {
     lista_jogador, close
 } = require('./jogadorBanco');
 
-const Jogador = require('../back-end/jogadorClasse');
+const Jogador = require('../jogadorClasse');
 
 const jogador1 = new Jogador('Lucas', 100.50);
 const jogador2 = new Jogador('Ana', 75.20);
