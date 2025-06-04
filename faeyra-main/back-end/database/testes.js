@@ -7,20 +7,22 @@ const {
 } = require('./jogadorBanco');
 
 const Jogador = require('../jogadorClasse');
+// const ConnectionFactory = require('./connectionFactory')
 
 const jogador1 = new Jogador('Lucas', 100.50);
 const jogador2 = new Jogador('Ana', 75.20);
 
-const con = open_connection();
+const conexao = open_connection();
+console.log(conexao)
 
-create_table_jogador(con, sql_create_table);
-inserir_jogador(con, jogador1, callback)
-inserir_jogador(con, jogador2, callback)
+create_table_jogador(conexao, sql_create_table);
+inserir_jogador(conexao, jogador1, c => console.log('tabela criada com sucesso!'))
+inserir_jogador(conexao, jogador2, c => console.log('jogador inserido com sucesso!'))
 
-lista_jogador(con, sql_lista_todos, (jogadores) => {
+lista_jogador(conexao, sql_lista_todos, (jogadores) => {
     console.log('Lista de jogadores:');
     console.table(jogadores);
 
-    close(con);
+    close(conexao);
 });
 

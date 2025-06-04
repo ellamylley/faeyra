@@ -1,20 +1,20 @@
 class Produto {
-    #codigo;
-    #nome;
+    #id_produto;
+    #nome_produto;
     #preco;
 
-    constructor(codigo, nome, preco) {
-        this.#codigo = codigo;
-        this.#nome = nome;
+    constructor(nome_produto, preco) {
+        this.#id_produto = 1;
+        this.#nome_produto = nome_produto;
         this.#preco = preco;
     }
 
-    get codigo() {
-        return this.#codigo;
+    get id_produto() {
+        return this.#id_produto;
     }
 
     get nome() {
-        return this.#nome;
+        return this.#nome_produto;
     }
 
     get preco() {
@@ -22,7 +22,7 @@ class Produto {
     }
 
     set nome(novoNome) {
-        this.#nome = novoNome;
+        this.#nome_produto = novoNome;
     }
 
     set preco(novoPreco) {

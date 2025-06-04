@@ -1,11 +1,13 @@
+const Especie = require('./especieClasse')
+
 class Cliente extends Especie {
     #id_cliente;
-    #nome;
+    #nome_cliente;
     #id_especie;
 
-    constructor(id_cliente, nome_cliente, id_especie, raiva, felicidade, nome_especie, satisfacaoMinima) {
+    constructor(nome_cliente, id_especie, raiva, felicidade, nome_especie, satisfacaoMinima) {
         super(id_especie, raiva, felicidade, nome_especie)
-        this.#id_cliente = id_cliente;
+        this.#id_cliente = 1;
         this.#nome_cliente = nome_cliente;
     }
 
@@ -13,12 +15,12 @@ class Cliente extends Especie {
         return this.#id_cliente;
     }
 
-    get nome() {
-        return this.#nome;
+    get nome_cliente() {
+        return this.#nome_cliente;
     }
 
     set nome(novoNome) {
-        this.#nome = novoNome;
+        this.#nome_cliente = novoNome;
     }
 
     get idEspecie() {

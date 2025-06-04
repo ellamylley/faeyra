@@ -8,6 +8,7 @@ function moverPersonagem(entrarOuSair) {
   let destino;
 
   if (acao === "entrar") {
+    container.style.display = "flex";
     posicao = -150;
     destino = 400;
     botaoIniciar.style.display = "none";
@@ -17,8 +18,6 @@ function moverPersonagem(entrarOuSair) {
   if (acao === "sair") {
     posicao = 400;
     destino = 2000;
-    botaoFinalizar.style.display = "none";
-    botaoIniciar.style.display = "flex";
   }
 
   let frame = 0;
@@ -31,10 +30,17 @@ function moverPersonagem(entrarOuSair) {
     container.style.left = posicao + "px";
     container.style.top = `calc(20vh + ${deslocamentoVertical}px)`; // base + variação
 
+
     if (posicao >= destino) {
       clearInterval(intervalo);
     }
   }, 15);
+  
+  if(acao === "sair"){
+    botaoFinalizar.style.display = "none";
+    botaoIniciar.style.display = "flex";
+    container.style.display = "none";
+  }
 }
 
 

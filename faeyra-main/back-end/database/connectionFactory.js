@@ -16,6 +16,7 @@ class ConnectionFactory {
                 return;
             }
             console.log('Conexão bem-sucedida');
+
         });
     }
     end() {
@@ -26,6 +27,10 @@ class ConnectionFactory {
             }
             console.log('Conexão encerrada.');
         });
+    }
+
+    returnConnnection(){
+        return this.connection;
     }
 
 }

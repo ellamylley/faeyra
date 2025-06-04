@@ -1,5 +1,5 @@
-const mysql = require('mysql2');
-const Jogador = require('../jogadorClasse');
+// const mysql = require('mysql2');
+// const Jogador = require('../jogadorClasse');
 const ConnectionFactory = require('./connectionFactory')
 
 const sql_create_table = `CREATE TABLE db.jogador (
@@ -16,8 +16,9 @@ const sql_lista_todos = `SELECT * FROM jogador;`;
 
 function open_connection() {
     console.log("Conectando...");
-    let fabrica = new ConnectionFactory();
-    const connection = fabrica;
+    const fabrica = new ConnectionFactory(); // isso agora retorna uma conexão válida
+    const connection = fabrica.returnConnnection();
+    console.log(connection)
     connection.connect(function (err) {
         if (err) {
             console.error('Erro ao conectar: ' + err.stack);
