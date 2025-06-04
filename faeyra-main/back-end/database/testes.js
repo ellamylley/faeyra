@@ -13,6 +13,9 @@ const jogador2 = new Jogador('Ana', 75.20);
 
 const con = open_connection();
 
+create_table_jogador(con, sql_create_table);
+inserir_jogador(con, jogador1, callback)
+inserir_jogador(con, jogador2, callback)
 
 lista_jogador(con, sql_lista_todos, (jogadores) => {
     console.log('Lista de jogadores:');

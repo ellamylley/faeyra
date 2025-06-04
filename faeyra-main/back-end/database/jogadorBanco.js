@@ -1,5 +1,6 @@
 const mysql = require('mysql2');
 const Jogador = require('../jogadorClasse');
+const ConnectionFactory = require('./connectionFactory')
 
 const sql_create_table = `CREATE TABLE db.jogador (
     id BIGINT NOT NULL AUTO_INCREMENT,
@@ -13,21 +14,10 @@ const sql_insert = `INSERT INTO jogador(nome, dinheiro) VALUES (?, ?);`;
 const sql_lista_todos = `SELECT * FROM jogador;`;
 
 
-class ConnectionFactory {
-    open() {
-        return mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: '',
-            database: 'db'
-        });
-    }
-}
-
 function open_connection() {
     console.log("Conectando...");
     let fabrica = new ConnectionFactory();
-    const connection = fabrica.open();
+    const connection = fabrica;
     connection.connect(function (err) {
         if (err) {
             console.error('Erro ao conectar: ' + err.stack);
