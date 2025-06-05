@@ -5,7 +5,6 @@ class Cliente {
   #id_jogador;
   #id_especie;
   #nome_cliente;
-  #especie;
 
   constructor(id_especie, id_jogador, nome_cliente) {
     this.#id_especie = id_especie;
@@ -29,16 +28,8 @@ class Cliente {
     return this.#nome_cliente;
   }
 
-  get especie() {
-    return this.#especie;
-  }
-
   set id_cliente(id) {
     this.#id_cliente = id;
-  }
-
-  set especie(especieObj) {
-    this.#especie = especieObj;
   }
 
   set nome_cliente(novoNome) {

@@ -1,5 +1,5 @@
-const Especie = require('../../especieClasse');
-const Cliente = require('../../clienteClasse');
+const Especie = require('../../classes/especieClasse');
+const Cliente = require('../../classes/clienteClasse');
 class ClienteDAO {
     constructor(connection) {
         this.connection = connection;
@@ -19,37 +19,18 @@ class ClienteDAO {
 
     inserir(cliente, callback) {
         const sql = `
-      INSERT INTO cliente (id_especie, id_jogador, nome_cliente)
+      INSERT INTO cliente(id_especie, id_jogador, nome_cliente)
       VALUES (?, ?, ?);`;
         this.connection.query(sql, [
-            cliente.especie.id_especie,
+            cliente.id_especie,
             cliente.id_jogador,
             cliente.nome_cliente
         ], callback);
     }
 
     listar(callback) {
-        const sql = `
-      SELECT c.id_cliente, c.id_jogador, c.nome_cliente,
-             e.id_especie, e.nome_especie, e.satisfacao_minima
-      FROM cliente c
-      JOIN especie e ON c.id_especie = e.id_especie;
-    `;
-        this.connection.query(sql, (err, results) => {
-            if (err) return callback(err);
-
-            const clientes = results.map(linha => {
-                const especie = new Especie(linha.nome_especie, linha.satisfacao_minima);
-                especie.id_especie = linha.id_especie; 
-
-                const cliente = new Cliente(linha.id_cliente, especie, linha.id_jogador, linha.nome_cliente
-
-                );
-                return cliente;
-            });
-
-            callback(null, clientes);
-        });
+        const sql = ` SELECT * FROM cliente`;
+        this.connection.query(sql, callback);
     }
 
     apagarTabela(callback) {

@@ -1,6 +1,6 @@
 const Produto = require('./produtoClasse');
 
-class Estoque extends Produto {
+class Estoque {
     #preco_cliente;
     #quantidade;
 
