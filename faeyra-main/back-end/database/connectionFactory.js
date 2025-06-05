@@ -1,10 +1,11 @@
 const mysql = require('mysql2');
+const criarDatabase = require('./DAO/databaseDAO');
 class ConnectionFactory {
     constructor() {
         this.connection = mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password: 'root',
+            password: '',
             database: 'db'
         });
     }

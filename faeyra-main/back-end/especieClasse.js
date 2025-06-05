@@ -1,50 +1,34 @@
 class Especie {
     #nome_especie;
     #id_especie;
-    #raiva;
-    #felicidade;
-    #satisfacaoMinima
+    #satisfacao_minima;
     
 
-    constructor(nome_especie, raiva, felicidade, id_especie, satisfacaoMinima) {
+    constructor(nome_especie, satisfacao_minima) {
         this.#nome_especie = nome_especie;
-        this.#id_especie = 1;
-        this.#raiva = raiva;
-        this.#felicidade = felicidade;
-        this.satisfacaoMinima = satisfacaoMinima
+        this.#id_especie;
+        this.#satisfacao_minima = satisfacao_minima;
     }
 
-    getNome() {
+    get nome_especie() {
         return this.#nome_especie;
     }
 
-    getId() {
+    get id_especie() {
         return this.#id_especie;
     }
 
-    getRaiva() {
-        return this.#raiva;
+    get satisfacao_minima() {
+        return this.#satisfacao_minima;
     }
 
-    getFelicidade() {
-        return this.#felicidade;
-    }
-
-    getSatisfacaoMinima() {
-        return this.#satisfacaoMinima
-    }
-
-    setNome(novoNome) {
+    set nome_especie(novoNome) {
         this.#nome_especie = novoNome;
     }
 
-    setRaiva(novaRaiva) {
-        this.#raiva = novaRaiva;
-    }
-
-    setFelicidade(novaFelicidade) {
-        this.#felicidade = novaFelicidade;
+    set satisfacao_minima(novaSatisfacaoMinima){
+        this.#satisfacao_minima = novaSatisfacaoMinima;
     }
 }
 
-module.exports = Especie
+module.exports = Especie;

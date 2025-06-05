@@ -34,6 +34,11 @@ class Jogador {
     set dinheiro(novoDinheiro) {
         this.#dinheiro = novoDinheiro;
     }
+
+    set chances(novasChances){
+        this.#chances = novasChances;
+    }
 }
+
 
 module.exports = Jogador;
