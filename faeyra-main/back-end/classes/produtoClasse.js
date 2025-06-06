@@ -13,7 +13,7 @@ class Produto {
         return this.#id_produto;
     }
 
-    get nome() {
+    get nome_produto() {
         return this.#nome_produto;
     }
 
@@ -21,7 +21,7 @@ class Produto {
         return this.#preco;
     }
 
-    set nome(novoNome) {
+    set nome_produto(novoNome) {
         this.#nome_produto = novoNome;
     }
 

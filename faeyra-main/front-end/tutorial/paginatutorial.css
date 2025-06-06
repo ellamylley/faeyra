@@ -15,7 +15,8 @@ body {
 }
 
 .container {
-    /* border-width: ; */
+    position: fixed;
+    padding: 10px;
     border-radius: 4%;
     background-color: rgb(53, 71, 29);
     width: 65vw;
@@ -25,13 +26,15 @@ body {
 
 p {
     font-family: Aubrey;
-    font-size: 2em;
+    font-size: clamp(1em, 2em, 3em);
 }
 
 h1,
 h3 {
+    margin: 0;
     font-family: Railey;
-    font-size: 2em;
+    font-size: 3em;
+    text-shadow: 2px 2px 2px black;
 }
 
 h1,
@@ -93,14 +96,13 @@ p {
     background-color: rgb(248, 247, 161);
     border: none;
     font-family: Aubrey;
-     font-size: 1em;
+    font-size: 1em;
     font-weight: bolder;
     
 }
 .center-container {
     display: flex;
     justify-content: center;
-    padding: 100px;
 }
 
 .botões {
