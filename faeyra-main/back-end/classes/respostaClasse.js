@@ -12,6 +12,10 @@ class Resposta {
         return this.#id_resposta;
     }
 
+    get id_pergunta(){
+        return this.#id_pergunta;
+    }
+
     get texto() {
         return this.#texto;
     }

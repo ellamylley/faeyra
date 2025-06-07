@@ -1,4 +1,3 @@
-//Função que move personagem
 function moverPersonagem(entrarOuSair) {
   const container = document.getElementById("personagem");
   const botaoIniciar = document.getElementById("start");
@@ -17,7 +16,7 @@ function moverPersonagem(entrarOuSair) {
 
   if (acao === "sair") {
     posicao = 400;
-    destino = 2000;
+    destino = 1100;
   }
 
   let frame = 0;
@@ -26,21 +25,18 @@ function moverPersonagem(entrarOuSair) {
     posicao += 3; 
     frame++;
 
-    let deslocamentoVertical = Math.sin(frame * 0.2) * 5; // movimento vertical
+    let deslocamentoVertical = Math.sin(frame * 0.2) * 5;
     container.style.left = posicao + "px";
-    container.style.top = `calc(20vh + ${deslocamentoVertical}px)`; // base + variação
-
+    container.style.top = `calc(20vh + ${deslocamentoVertical}px)`;
 
     if (posicao >= destino) {
       clearInterval(intervalo);
+
+      if (acao === "sair") {
+        container.style.display = "none"; // Só some depois da animação
+        botaoFinalizar.style.display = "none";
+        botaoIniciar.style.display = "flex";
+      }
     }
   }, 15);
-  
-  if(acao === "sair"){
-    botaoFinalizar.style.display = "none";
-    botaoIniciar.style.display = "flex";
-    container.style.display = "none";
-  }
 }
-
-

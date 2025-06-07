@@ -7,8 +7,8 @@ class ProdutoDAO {
     const sql = `
       CREATE TABLE IF NOT EXISTS produto (
         id_produto BIGINT NOT NULL AUTO_INCREMENT,
-        nome_produto VARCHAR(10),
-        preco DECIMAL (3,2),
+        nome_produto VARCHAR(100),
+        preco DECIMAL (4,2),
         PRIMARY KEY (id_produto)
       );`;
     this.connection.query(sql, callback);
