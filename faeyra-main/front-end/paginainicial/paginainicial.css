@@ -10,12 +10,17 @@ body {
 }
 
 @font-face {
+    font-family: Aubrey;
+    src: url(/faeyra-main/front-end/fontes/Aubrey-Regular.ttf);
+}
+
+@font-face {
     font-family: Railey;
     src: url(/faeyra-main/front-end/fontes/Railey-PersonalUse.ttf)
 }
 
 /* CAMADA TRANSPARENTE */
-#sobreposicao{
+#sobreposicao {
     position: fixed;
     top: 0;
     left: 0;
@@ -51,7 +56,7 @@ body {
 
 #subtitulo {
     position: relative;
-    top: 25vh; 
+    top: 25vh;
     width: 100%;
     text-align: center;
     color: rgb(141, 189, 79);
@@ -69,17 +74,63 @@ button {
     border: none;
     font-family: Railey;
     font-size: 2em;
-    color:  rgb(248, 247, 161);
+    color: rgb(248, 247, 161);
     cursor: pointer;
-}
-
-#botaojogar{
     margin-top: 25vh;
 }
 
-#jogar, #tutorial {
+
+#jogar {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
     margin-top: 20px;
 }
+
+#cadastro {
+    position: absolute;
+    align-items: center;
+    top:15vh;
+    left: 30vw;
+    width: 40vw;
+    height: 70vh;
+    flex-direction: column;
+    padding: 30px;
+    background-color: rgba(53, 71, 29, 0.99);
+    border-radius: 20px;
+    border: 1px solid #333;
+    margin-top: 10px;
+    z-index: 2;
+}
+
+#cadastro h1{
+    font-family: Railey;
+    color: rgb(248, 247, 161);
+    text-shadow: 2px 2px 2px black;
+    font-size: clamp(1em, 3.5em, 4em);
+}
+
+#cadastro label{
+    font-family: Aubrey;
+    color: rgb(248, 247, 161);
+    font-size: 1.5em;
+}
+
+#cadastro input{
+   background-color: rgb(248, 247, 161);
+   font-family: Aubrey;
+   padding: 5px;
+   font-size: 1.5em;
+   width: 90%;
+}
+
+#cadastro button {
+    background-color:rgb(248, 247, 161);
+    color:black;
+    font-family: Aubrey;
+    font-weight: bolder;
+    margin-top: 10vh;
+    width: 20vw;
+    height: 10vh;
+}
+

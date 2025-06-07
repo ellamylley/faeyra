@@ -9,7 +9,7 @@ body {
 
 @font-face {
     font-family: Aubrey;
-    src: url(/front-end/fontes/Aubrey-Regular.ttf)
+    src: url(/faeyra-main/front-end/fontes/Aubrey-Regular.ttf)
 }
 
 body,
@@ -22,11 +22,11 @@ button {
 
 /* CALCULATOR CONTAINER */
 .calculator {
-    background-color: rgb(53, 71, 29);
+    background-color: #1d754a;
     border-radius: 15px;
     border-style: solid;
     border-color: #000000;
-    box-shadow: 8px 8px 8px rgb(19, 65, 8);
+    box-shadow: 8px 8px 8px 1d754a;
     padding: 20px 30px;
     width: 300px;
     /* display: none;  */
@@ -68,8 +68,8 @@ button {
 
 /* BUTTON */
 .button {
-    background-color: #000000;
-    border: none;
+    background-color: #1d754a;
+    border: 3px solid black;
     border-radius: 10px;
     color: #ffffff;
     cursor: pointer;
@@ -78,7 +78,7 @@ button {
     height: 60px;
     margin: 2px;
     width: 60px;
-    box-shadow: 5px 5px 5px #1f995e;
+    box-shadow: 2px 2px 5px black;
 }
 
 

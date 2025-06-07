@@ -25,7 +25,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 20;
+    z-index: 14;
 }
 
 /* BARRACA */
@@ -91,7 +91,7 @@ body {
     position: fixed;
     z-index: 5;
     top: 60vh;
-    left: 70vw;
+    right: 25vw;
 }
 
 #abrirCalculadora img {
@@ -100,18 +100,35 @@ body {
     max-height: 30vh;
 }
 
+/* LIVRO */
+#livro {
+    cursor: pointer;
+    position: fixed;
+    z-index: 5;
+    top: 65vh;
+    right: 5vw;
+}
+
+#livro img {
+    width: 20vw;
+    height: auto;
+    max-height: 30vh;
+}
+
 
 /* BOTÃO FECHAR CALCULADORA (X) */
 #fecharCalculadora {
-    color: #40c283;
-    background-color: rgba(0, 0, 0, 0);
-    font-family: Railey;
+    color:black;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #1d754a;
+    font-family: Aubrey;
+    font-weight: bolder;
     cursor: pointer;
-    font-size: 40px;
+    font-size: 1em;
     width: 70px;
-    height: 70px;
-    margin-top: 80%;
-    border: none;
+    height: 30px;
+    margin-top: 100%;
 }
 
 
@@ -180,3 +197,4 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
+

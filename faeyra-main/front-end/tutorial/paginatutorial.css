@@ -16,12 +16,18 @@ body {
 
 .container {
     position: fixed;
-    padding: 10px;
+    top:15vh;
+    left: 17vw;
+    padding: 1vw;
     border-radius: 4%;
     background-color: rgb(53, 71, 29);
+}
+
+.center-container {
     width: 65vw;
     height: 70vh;
-
+    display: flex;
+    justify-content: center;
 }
 
 p {
@@ -33,7 +39,7 @@ h1,
 h3 {
     margin: 0;
     font-family: Railey;
-    font-size: 3em;
+    font-size: clamp(10px, 3em, 50px);
     text-shadow: 2px 2px 2px black;
 }
 
@@ -52,7 +58,7 @@ p {
     border: none;
     border-radius: 9%;
     font-family: Aubrey;
-     font-size: 1em;
+    font-size: 1em;
     font-weight: bolder;
 }
 
@@ -99,10 +105,6 @@ p {
     font-size: 1em;
     font-weight: bolder;
     
-}
-.center-container {
-    display: flex;
-    justify-content: center;
 }
 
 .botões {

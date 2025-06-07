@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="paginainicial.css">
 
     <title>FAEYRA | página inicial</title>
-    <link rel="icon" href="/faeyra-main/front-end/imagens/icon.png" type="image/x-icon"> 
+    <link rel="icon" href="/faeyra-main/front-end/imagens/logopequena.png" type="image/x-icon">
 </head>
 
 <body>
@@ -16,20 +16,29 @@
                 <img src="/faeyra-main/front-end/imagens/logobackground.png"></img>
                 <p id="titulo">Faeyra</p>
             </div>
-            <p id="subtitulo">Bem-vindo à Feira das Ferinhas!
-            <p>
+            <p id="subtitulo">Bem-vindo à Feira das Ferinhas!<p>
         </header>
 
-        <div id="botoes">
+        <div id="jogar">
+            <button onclick="mostrarDiv('cadastro')" id="botaojogar" type="submit">JOGAR</button>
+        </div>
+
+        </a>
+
+        <div id="cadastro" style="display: none;">
+            <h1>Boas Vindas</h1>
+            <label>Digite seu nome</label>
+            <br>
+            <input type="text" id="nome" placeholder="Digite aqui">
+            </input>
             <a href="/faeyra-main/front-end/tutorial/paginatutorial.html" style="text-decoration: none;">
-                <div id="jogar">
-                    <button id="botaojogar" type="submit">JOGAR</button>
-                </div>
-            </a>
-            </div>
+                <button id="iniciar">Iniciar</button>
             </a>
         </div>
+
     </div>
+
+    <script src="/faeyra-main/front-end/front-functions/mostrarDiv.js"></script>
 </body>
 
 </html>
