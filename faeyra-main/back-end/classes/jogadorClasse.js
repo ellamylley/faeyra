@@ -1,12 +1,14 @@
 class Jogador {
     #id;
     #nome;
+    #senha;
     #dinheiro;
     #chances;
 
-    constructor(nome, dinheiro, chances) {
+    constructor(nome, senha, dinheiro, chances) {
         this.#id;
         this.#nome = nome;
+        this.#senha = senha
         this.#dinheiro = dinheiro;
         this.#chances = chances
     }
@@ -19,6 +21,10 @@ class Jogador {
         return this.#nome;
     }
 
+    get senha() {
+        return this.#senha
+    }
+
     get dinheiro() {
         return this.#dinheiro;
     }
@@ -29,6 +35,10 @@ class Jogador {
 
     set nome(novoNome) {
         this.#nome = novoNome;
+    }
+
+    set senha(novaSenha) {
+        this.#senha = novaSenha
     }
 
     set dinheiro(novoDinheiro) {
