@@ -8,7 +8,7 @@ class JogadorDAO {
       CREATE TABLE IF NOT EXISTS jogador (
         id BIGINT NOT NULL AUTO_INCREMENT,
         nome VARCHAR(10),
-        senha VARCHAR(128)
+        senha VARCHAR(128),
         dinheiro DECIMAL(5,2),
         chances INT(1),
         PRIMARY KEY (id)
@@ -18,7 +18,7 @@ class JogadorDAO {
 
   inserir(jogador, callback) {
     const sql = 'INSERT INTO jogador(nome, senha, dinheiro, chances) VALUES (?, ?, ?, ?);';
-    this.connection.query(sql, [jogador.nome, jogador.dinheiro, jogador.chances], callback);
+    this.connection.query(sql, [jogador.nome, jogador.senha, jogador.dinheiro, jogador.chances], callback);
   }
 
   listar(callback) {
@@ -29,6 +29,12 @@ class JogadorDAO {
   apagarTabela(callback) {
     const sql = 'DROP TABLE IF EXISTS jogador;';
     this.connection.query(sql, callback);
+  }
+
+  buscarJogador(nome, callback) {
+    const sql = 'SELECT * FROM jogador WHERE nome = ? LIMIT 1';
+    this.connection.query(sql, [nome], callback);
+    
   }
 }
 
