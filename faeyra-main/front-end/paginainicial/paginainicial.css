@@ -64,7 +64,8 @@ body {
     font-family: Railey;
 }
 
-button {
+button,
+input[type=submit] {
     height: 90px;
     width: 50%;
     max-width: 400px;
@@ -87,10 +88,11 @@ button {
     margin-top: 20px;
 }
 
-#cadastro {
+#cadastro,
+#login {
     position: absolute;
     align-items: center;
-    top:15vh;
+    top: 15vh;
     left: 30vw;
     width: 40vw;
     height: 70vh;
@@ -100,37 +102,46 @@ button {
     border-radius: 20px;
     border: 1px solid #333;
     margin-top: 10px;
+}
+
+#cadastro {
     z-index: 2;
 }
 
-#cadastro h1{
+#login {
+    z-index: 3;
+}
+
+h1 {
     font-family: Railey;
     color: rgb(248, 247, 161);
     text-shadow: 2px 2px 2px black;
     font-size: clamp(1em, 3.5em, 4em);
+    margin-top: 0;
 }
 
-#cadastro label{
+label {
     font-family: Aubrey;
     color: rgb(248, 247, 161);
     font-size: 1.5em;
+    margin-top: 0;
+
+}
+ input[type="text"],  input[type="password"] {
+    background-color: rgb(248, 247, 161);
+    font-family: Aubrey;
+    padding: 5px;
+    font-size: 1.5em;
+    width: 90%;
 }
 
-#cadastro input{
-   background-color: rgb(248, 247, 161);
-   font-family: Aubrey;
-   padding: 5px;
-   font-size: 1.5em;
-   width: 90%;
-}
-
-#cadastro button {
-    background-color:rgb(248, 247, 161);
-    color:black;
+input[type=submit],
+button[type="button"] {
+    background-color: rgb(248, 247, 161);
+    color: black;
     font-family: Aubrey;
     font-weight: bolder;
-    margin-top: 10vh;
+    margin-top: 2vh;
     width: 20vw;
-    height: 10vh;
+    height: 9vh;
 }
-

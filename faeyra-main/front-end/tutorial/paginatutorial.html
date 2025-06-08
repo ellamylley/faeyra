@@ -5,33 +5,112 @@
     <link rel="stylesheet" href="paginatutorial.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/faeyra-main/front-end/imagens/logopequena.png" type="image/x-icon">
     <title>Faeyra | Tutorial</title>
 </head>
 
 <body>
-    <div class="center-container">
-        <div class='container'>
+    <div id="center-container">
+        <a href="/faeyra-main/front-end/paginaprincipal/paginaprincipal.html"><button id="pular">Pular
+                tutorial</button></a>
+        <div id='pgTutorial1' style="display: flex;">
             <header>
-                <a href="/faeyra-main/front-end/paginaprincipal/paginaprincipal.html"><button class="btn-voltar">Pular
-                        tutorial</button></a>
-                <h1>Bem-vindo(a)</h1>
+                <h1>Bem-vindo(a) a feira das ferinhas!</h1>
                 <h3>Objetivo do jogo:</h3>
             </header>
-            
             <p>
-                Em Faeyra o jogador o papel<br>
-                de um caixa em uma feira exótica.<br>
-                Seu objetivo como jogador é<br>
-                realizar bem o trabalho e deixar<br>
-                seus clientes satisfeitos. O jogo combina<br>
-                habilidades com número e tomada de decisões.
+                Em Faeyra, você assumirá o papel de um caixa em uma feira exótica. Seu objetivo como jogador é realizar
+                bem o trabalho e deixar seus clientes satisfeitos. O jogo irá testar suas habilidades com números e
+                tomada de decisões.
             </p>
             <footer>
-                <div class="botões">
-                    <a href="pgTutorial1.html"><button id="btn-prox-ini" type="submit">Próximo</button></a>
+                <div id="botões1">
+                    <button id="bp1" type="submit" onclick="mostrarDiv('pgTutorial2')">Próximo</button>
             </footer>
         </div>
+
+        <div id="pgTutorial2" style="display: none;" >
+            <h3>Atendimento ao cliente</h3>
+            <p> Seus clientes irão fazer o pedido desejado.</p>
+            <img src="" alt="">
+            <p> Você deverá calcular corretamente o valor total da compra.<br>
+                Um erro pode causar na diminuição na tolerancia do cliente, e consequentemente,
+                na perda de vidas.</p>
+            <img src="" alt="">
+            <footer>
+                <div id="botões2">
+                    <button id="ba2" type="submit" onclick="ocultarDiv('pgTutorial2')">Voltar</button>
+                    <button id="bp2" type="submit" onclick="mostrarDiv('pgTutorial3')">Próximo</button>
+                </div>
+            </footer>
+        </div>
+
     </div>
+
+
+    <div id='pgTutorial3' style="display: none;">
+        <header>
+            <h3>Vidas</h3>
+        </header>
+
+        <p>O jogador começará com três vidas. A cada erro cometido, uma vida é debitada de seu total.</p>
+        <img src="" alt="">
+        <p>Caso perca as três vidas o jogador será demitido.</p>
+        <img src="" alt="">
+        <footer>
+            <div id="botões3">
+                <button id="ba3" type="submit" onclick="ocultarDiv('pgTutorial3')">Voltar</button>
+                <button id="bp3" type="submit" onclick="mostrarDiv('pgTutorial4')">Próximo</button>
+            </div>
+        </footer>
+    </div>
+
+    <div id='pgTutorial4' style="display: none;">
+        <header>
+            <h3>Clientes</h3>
+        </header>
+
+        <p>
+            Cada cliente possui um perfil distinto. Cada cliente reage de uma forma diferente, de acordo com seu
+            temperamento.</p>
+        <img src="" alt="">
+        <p>
+            Os perfis dos clientes podem ser acessados através do livro no balcão.
+        </p>
+        <img src="" alt="">
+        <footer>
+            <div id="botões4">
+                <button id="ba4" type="submit"  onclick="ocultarDiv('pgTutorial4')">Voltar</button>
+                <button id="bp4" type="submit" onclick="mostrarDiv('pgTutorial5')">Próximo</button>
+            </div>
+        </footer>
+    </div>
+
+    <div id='pgTutorial5' style="display: none;">
+        <header>
+            <h3>Produtos e Estoque</h3>
+        </header>
+        <p>
+            O catálogo dos produtos pode ser acessados atráves do livro no balcão. O catálogo fornece os nomes dos
+            produtos e seus preços.
+        </p>
+        <img src="" alt="">
+        <p>
+            O estoque pode ser reabastecido através do botão de estoque. Os produtos serão repostos por lotes.
+        </p>
+        <img src="" alt="">
+        <footer>
+            <div id="botões5">
+                <button id="ba5" type="submit"  onclick="ocultarDiv('pgTutorial5')">Voltar</button>
+                <a href="/faeyra-main/front-end/paginaprincipal/paginaprincipal.html"><button id="fim" type="submit">Ir
+                        para o jogo</button></a>
+            </div>
+        </footer>
+    </div>
+
+    </div>
+
+ <script src="/faeyra-main/front-end/front-functions/mostrarDiv.js"></script>
 </body>
 
 </html>

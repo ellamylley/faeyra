@@ -1,7 +1,5 @@
 body {
     background-image: url(/faeyra-main/front-end/imagens/background.png);
-
-
 }
 
 @font-face {
@@ -14,20 +12,20 @@ body {
     src: url(/faeyra-main/front-end/fontes/Railey-PersonalUse.ttf);
 }
 
-.container {
+#pgTutorial1,
+#pgTutorial2,
+#pgTutorial3,
+#pgTutorial4,
+#pgTutorial5 {
     position: fixed;
-    top:15vh;
-    left: 17vw;
-    padding: 1vw;
-    border-radius: 4%;
+    top: 8vh;
+    left: 11vw;
+    padding: 4vw;
+    border-radius: 15px;
     background-color: rgb(53, 71, 29);
-}
-
-.center-container {
-    width: 65vw;
+    flex-direction: column;
     height: 70vh;
-    display: flex;
-    justify-content: center;
+    width: 70vw;
 }
 
 p {
@@ -51,66 +49,37 @@ p {
 
 }
 
-#btn-ante-fim {
+button {
     background-color: rgb(248, 247, 161);
-    width: 55px;
-    height: 25px;
+    width: 85px;
+    height: 35px;
     border: none;
     border-radius: 9%;
     font-family: Aubrey;
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: bolder;
 }
 
-#btn-prox-ini {
-    background-color: rgb(248, 247, 161);
-    width: 55px;
-    height: 25px;
-    border: none;
-    border-radius: 9%;
-    margin-left: 56.8vw;
-    font-family: Aubrey;
-    font-size: 1em;
-    font-weight: bolder;
+#botões2,
+#botões3,
+#botões4,
+#botões5 {
+    display: flex;
+    justify-content: space-between;
 }
 
-.btn-prox {
-    background-color: rgb(248, 247, 161);
-    width: 55px;
-    height: 25px;
-    border: none;
-    border-radius: 9%;
-    margin-left: 25vw;
-    font-family: Aubrey;
-     font-size: 1em;
-    font-weight: bolder;
-}
-
-.btn-ante {
-    background-color: rgb(248, 247, 161);
-    width: 55px;
-    height: 25px;
-    border: none;
-    border-radius: 9%;
-    left: 20vw;
-    margin-right: 28vw;
-    font-family: Aubrey;
-     font-size: 1em;
-    font-weight: bolder;
-}
-.btn-voltar{
-    background-color: rgb(248, 247, 161);
-    border: none;
-    font-family: Aubrey;
-    font-size: 1em;
-    font-weight: bolder;
-    
-}
-
-.botões {
+#pular {
+    cursor: pointer;
     position: fixed;
-    padding: 50px;
-    top: 70vh;
-
+    width: 150px;
+    right: 5vw;
 }
 
+#fim {
+    width: 150px;
+}
+
+#botões1{
+    display: flex;
+    justify-content: flex-end;
+}

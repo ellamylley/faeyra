@@ -16,25 +16,46 @@
                 <img src="/faeyra-main/front-end/imagens/logobackground.png"></img>
                 <p id="titulo">Faeyra</p>
             </div>
-            <p id="subtitulo">Bem-vindo à Feira das Ferinhas!<p>
+            <p id="subtitulo">Bem-vindo à Feira das Ferinhas!
+            <p>
         </header>
 
         <div id="jogar">
             <button onclick="mostrarDiv('cadastro')" id="botaojogar" type="submit">JOGAR</button>
         </div>
 
-        </a>
+        <!-- FORMULÁRIO DE CADASTRO -->
+        <form action="/faeyra-main/front-end/tutorial/paginatutorial.html">
+            <div id="cadastro" style="display: none;">
+                <h1>Boas Vindas</h1>
 
-        <div id="cadastro" style="display: none;">
-            <h1>Boas Vindas</h1>
-            <label>Digite seu nome</label>
-            <br>
-            <input type="text" id="nome" placeholder="Digite aqui">
-            </input>
-            <a href="/faeyra-main/front-end/tutorial/paginatutorial.html" style="text-decoration: none;">
-                <button id="iniciar">Iniciar</button>
-            </a>
-        </div>
+                <label>Digite seu nome de usuário:</label><br>
+                <input type="text" id="cadastro-nome" placeholder="Digite seu user" required>
+
+                <br><label>Crie uma senha:</label><br>
+                <input type="password" id="cadastro-senha" placeholder="Digite sua senha" required>
+
+                <div id="botoes_formularios"></div>
+                <button type="button" onclick="mostrarDiv('login')">Já possuo uma conta</button>
+
+                <input type="submit" value="Iniciar jogo" id="iniciarCadastro">
+            </div>
+        </form>
+
+        <!-- FORMULÁRIO DE LOGIN -->
+        <form action="/faeyra-main/front-end/tutorial/paginatutorial.html">
+            <div id="login" style="display: none;">
+                <h1>Bem-vindo(a) de volta!</h1>
+
+                <label>Digite seu nome de usuário:</label><br>
+                <input type="text" id="login-nome" placeholder="Digite aqui" required>
+
+                <br><label>Digite sua senha:</label><br>
+                <input type="password" id="login-senha" placeholder="Digite aqui" required>
+
+                <input type="submit" id="iniciarLogin" value="Fazer login">
+            </div>
+        </form>
 
     </div>
 
