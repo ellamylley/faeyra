@@ -3,8 +3,10 @@ const mysql = require('mysql2')
 const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
+const cors = require('cors')
 
-const JogadorDAO = require('./database/DAO/jogadorDAO.')
+// DAOs
+const JogadorDAO = require('./database/DAO/jogadorDAO')
 const ClienteDAO = require('./database/DAO/clienteDAO')
 const EspecieDAO = require('./database/DAO/especieDAO')
 const PerguntaDAO = require('./database/DAO/perguntaDAO')
@@ -12,6 +14,7 @@ const RespostaDAO = require('./database/DAO/respostaDAO')
 const ProdutoDAO = require('./database/DAO/produtoDAO')
 const EstoqueDAO = require('./database/DAO/estoqueDAO')
 
+// Classes
 const Jogador = require('./classes/jogadorClasse')
 const Cliente = require('./classes/clienteClasse')
 const Especie = require('./classes/especieClasse')
@@ -23,11 +26,17 @@ const Estoque = require('./classes/estoqueClasse')
 const SECRET = 'secret'
 
 const app = express()
+
+// Middlewares
+app.use(cors({
+    origin: 'http://127.0.0.1:5500', // ou http://localhost:5500
+    credentials: true
+}))
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(cookieParser())
 
-//conexão ao banco
+// Conexão MySQL
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -44,111 +53,112 @@ const produtoDAO = new ProdutoDAO(connection)
 const estoqueDAO = new EstoqueDAO(connection)
 
 connection.connect(err => {
-    if (err) {
-        throw err;
-    }
+    if (err) throw err
     console.log('Conectado ao banco.')
 })
 
-//autenticar usuário
+// Middleware de autenticação
 function verificarToken(req, res, next) {
     const token = req.cookies.token
-    if(!token) return res.status(401).json({ error: 'Token não existe'})
+    if (!token) return res.status(401).json({ error: 'Token não existe' })
 
     jwt.verify(token, SECRET, (err, decoded) => {
-        if (err) return res.status(403).json({ error: 'Token inválido'})
+        if (err) return res.status(403).json({ error: 'Token inválido' })
         req.id_jogador = decoded.id
         next()
     })
 }
 
-//cadastro
+// Cadastro de jogador
 app.post('/cadastro', (req, res) => {
-    const {nome, senha, dinheiro, chances} = req.body
+    const { nome, senha, dinheiro, chances } = req.body
     const jogador = new Jogador(nome, dinheiro, chances)
     jogador.senha = senha
 
     jogadorDAO.inserir(jogador, (err, results) => {
-        if (err) throw err
-        res.status(201).json({ message: 'Jogador criado!', id: results.insertId})
+        if (err) return res.status(500).json({ error: err.message })
+        res.status(201).json({ message: 'Jogador criado!', id: results.insertId })
     })
 })
 
-//login
+// Login
 app.post('/login', (req, res) => {
-    const {nome, senha} = req.body
+    const { nome, senha } = req.body
 
     jogadorDAO.buscarJogador(nome, (err, jogador) => {
-        if (err) throw err
-        if(!jogador || jogador.senha !== senha) {
-            return res.status(401).json({error: 'Usuário ou senha incorreta'})
+
+        if (err) return res.status(500).json({ error: err.message })
+        if (!jogador || jogador.senha !== senha) {
+            return res.status(401).json({ error: 'Usuário ou senha incorreta' })
         }
 
-        const token = jwt.sign({id: jogador.id, nome: jogador.nome}, SECRET, {expiresIn: '24h'})
-        res.cookie('token', token, {httpOnly: true})
-        res.json({message: 'Login realizado'})
+        const token = jwt.sign({ id: jogador.id, nome: jogador.nome }, SECRET, { expiresIn: '24h' })
+        res.cookie('token', token, { httpOnly: true })
+        res.json({ message: 'Login realizado' })
     })
 })
 
-//rotas
-
-//lista de jogadores cadastrados
+// Listar jogadores
 app.get('/jogadores', (req, res) => {
     jogadorDAO.listar((err, results) => {
-        if (err)
-            return res.status(500).json({error: err.message})
+        if (err) return res.status(500).json({ error: err.message })
         res.json(results)
     })
 })
 
-//adicionar clientes
+// Adicionar cliente
 app.post('/clientes', (req, res) => {
-    const {id_especie, id_jogador, nome_cliente} = req.body;
+    const { id_especie, id_jogador, nome_cliente } = req.body
     const cliente = new Cliente(id_especie, id_jogador, nome_cliente)
 
     clienteDAO.inserir(cliente, (err) => {
-        if (err) throw err
+        if (err) return res.status(500).json({ error: err.message })
+        res.status(201).json({ message: 'Cliente inserido com sucesso' })
     })
 })
 
-//adicionar especies
+// Adicionar espécie
 app.post('/especie', (req, res) => {
-    const {nome_especie, satisfacao_minima} = req.body;
+    const { nome_especie, satisfacao_minima } = req.body
     const especie = new Especie(nome_especie, satisfacao_minima)
 
-    especieDAO.inserir(cliente, (err) => {
-        if (err) throw err
+    especieDAO.inserir(especie, (err) => {
+        if (err) return res.status(500).json({ error: err.message })
+        res.status(201).json({ message: 'Espécie inserida com sucesso' })
     })
 })
 
-//adicionar produtos
+// Adicionar produto
 app.post('/produtos', (req, res) => {
-    const {nome_produto, preco} = req.body
+    const { nome_produto, preco } = req.body
     const produto = new Produto(nome_produto, preco)
 
     produtoDAO.inserir(produto, (err) => {
-        if (err) throw err
+        if (err) return res.status(500).json({ error: err.message })
+        res.status(201).json({ message: 'Produto inserido com sucesso' })
     })
 })
 
-//sorteio de perguntas
-app.get('perguntas', (req, res) => {
+// Buscar pergunta aleatória
+app.get('/perguntas', (req, res) => {
     perguntaDAO.buscarAleatorio((err, pergunta) => {
-        if (err) return res.status(500).json({error: err.message})
-            res.json(pergunta)
+        if (err) return res.status(500).json({ error: err.message })
+        res.json(pergunta)
     })
 })
 
-//compra de produtos para estoque do jogador
+// Comprar produto (adicionar ao estoque)
 app.post('/comprar', verificarToken, (req, res) => {
-    const {id_produto, quantidade, preco_cliente} = req.body
-    const estoque = new Estoque(id_produto, req.jogador.id, quantidade, preco_cliente)
+    const { id_produto, quantidade, preco_cliente } = req.body
+    const estoque = new Estoque(id_produto, req.id_jogador, quantidade, preco_cliente)
 
     estoqueDAO.inserir(estoque, (err) => {
-        if (err) throw err
+        if (err) return res.status(500).json({ error: err.message })
+        res.status(201).json({ message: 'Compra realizada com sucesso' })
     })
 })
-//inicio servidor
+
+// Iniciar servidor
 const PORT = 3000
 app.listen(PORT, () => {
     console.log(`Rodando na porta ${PORT}.`)

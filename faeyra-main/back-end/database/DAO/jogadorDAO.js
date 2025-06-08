@@ -32,10 +32,13 @@ class JogadorDAO {
   }
 
   buscarJogador(nome, callback) {
-    const sql = 'SELECT * FROM jogador WHERE nome = ? LIMIT 1';
-    this.connection.query(sql, [nome], callback);
-    
-  }
+    const sql = 'SELECT * FROM jogador WHERE nome = ?'
+    this.connection.query(sql, [nome], (err, results) => {
+        if (err) return callback(err)
+        callback(null, results[0])
+    })
+}
+
 }
 
 module.exports = JogadorDAO;
