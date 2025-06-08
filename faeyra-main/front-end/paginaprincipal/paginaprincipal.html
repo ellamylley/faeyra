@@ -22,7 +22,7 @@
         <header>
             <a href="/faeyra-main/front-end/paginainicial/paginaInicial.html" style="text-decoration: none;">
                 <div id="logopequena">
-                    <img src="/faeyra-main/front-end/imagens/logo.png">
+                    <img src="/faeyra-main/front-end/imagens/logotopo.png">
                 </div>
             </a>
         </header>
@@ -52,19 +52,33 @@
             </div>
         </div>
         <div id="personagem" style="display: none;">
-            <img src="/faeyra-main/front-end/imagens/personagemTeste.png">
+            <img>
         </div>
 
         <div id="livro">
             <img src="/faeyra-main/front-end/imagens/livro.png">
         </div>
 
+        <div id="pergunta" style="display: none;"></div>
+
+        <div id="respostas">
+            <div id="resposta1"></div>
+            <div id="resposta2"></div>
+            <div id="resposta3"></div>
+        </div>
+
+        <div id="vidas">
+            <div id="vida1" style="display: block;"><img src="/faeyra-main/front-end/imagens/logopequena.png"></div>
+            <div id="vida2" style="display: block;"><img src="/faeyra-main/front-end/imagens/logopequena.png"></div>
+            <div id="vida3" style="display: block;"><img src="/faeyra-main/front-end/imagens/logopequena.png"></div>
+        </div>
+
         <div id="start" style="display:flex;">
-            <button onclick="moverPersonagem('entrar');">Iniciar atendimento</button>
+            <button onclick="iniciarAtendimento();">Iniciar atendimento</button>
         </div>
 
         <div id="end" style="display: none;">
-            <button onclick="moverPersonagem('sair');">Finalizar atendimento</button>
+            <button onclick="finalizarAtendimento()">Finalizar atendimento</button>
         </div>
 
 
@@ -72,6 +86,10 @@
     <script src="../../front-end/front-functions/gerenciarCalculadora.js"></script>
     <script src="../../front-end/front-functions/carregamento.js"></script>
     <script src="../../front-end/front-functions/personagemFunctions.js"></script>
+    <script src="../../front-end/front-functions/mostrarDiv.js"></script>
+    <script src="../js/cliente.js"></script>
+    <script src="../js/pergunta.js"></script>
+    <script src="../js/atendimento.js"></script>
 
 </body>
 

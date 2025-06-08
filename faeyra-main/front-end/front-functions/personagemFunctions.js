@@ -1,4 +1,4 @@
-function moverPersonagem(entrarOuSair) {
+function moverPersonagem(entrarOuSair, callback) {
   const container = document.getElementById("personagem");
   const botaoIniciar = document.getElementById("start");
   const botaoFinalizar = document.getElementById("end");
@@ -22,7 +22,7 @@ function moverPersonagem(entrarOuSair) {
   let frame = 0;
 
   const intervalo = setInterval(() => {
-    posicao += 3; 
+    posicao += 3;
     frame++;
 
     let deslocamentoVertical = Math.sin(frame * 0.2) * 5;
@@ -36,6 +36,10 @@ function moverPersonagem(entrarOuSair) {
         container.style.display = "none"; // Só some depois da animação
         botaoFinalizar.style.display = "none";
         botaoIniciar.style.display = "flex";
+      }
+
+      if (typeof callback === "function") {
+        callback();
       }
     }
   }, 15);
