@@ -12,6 +12,7 @@ class ClienteDAO {
         id_especie BIGINT,
         id_jogador BIGINT,
         nome_cliente VARCHAR(20),
+        satisfacao_atual INT,
         FOREIGN KEY (id_especie) REFERENCES especie(id_especie)
       );`;
         this.connection.query(sql, callback);
@@ -19,12 +20,13 @@ class ClienteDAO {
 
     inserir(cliente, callback) {
         const sql = `
-      INSERT INTO cliente(id_especie, id_jogador, nome_cliente)
-      VALUES (?, ?, ?);`;
+      INSERT INTO cliente(id_especie, id_jogador, nome_cliente, satisfacao_atual)
+      VALUES (?, ?, ?, ?);`;
         this.connection.query(sql, [
             cliente.id_especie,
             cliente.id_jogador,
-            cliente.nome_cliente
+            cliente.nome_cliente,
+            cliente.satisfacao_atual
         ], callback);
     }
 
@@ -37,6 +39,22 @@ class ClienteDAO {
         const sql = 'DROP TABLE IF EXISTS cliente;';
         this.connection.query(sql, callback);
     }
+
+    buscarAleatorio(callback) {
+    const sql = `
+        SELECT c.*, e.satisfacao_minima 
+        FROM cliente c 
+        JOIN especie e ON c.id_especie = e.id_especie 
+        ORDER BY RAND() LIMIT 1;
+    `;
+    this.connection.query(sql, (err, results) => {
+        if (err) return callback(err);
+        if (results.length === 0) return callback(null, null); 
+        callback(null, results[0]);
+    });
+}
+
+
 }
 
 module.exports = ClienteDAO;

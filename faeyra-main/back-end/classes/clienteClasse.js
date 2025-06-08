@@ -5,11 +5,13 @@ class Cliente {
   #id_jogador;
   #id_especie;
   #nome_cliente;
+  #satisfacao_atual;
 
-  constructor(id_especie, id_jogador, nome_cliente) {
+  constructor(id_especie, id_jogador, nome_cliente,  satisfacao_atual) {
     this.#id_especie = id_especie;
     this.#id_jogador = id_jogador;
     this.#nome_cliente = nome_cliente;
+    this.#satisfacao_atual = satisfacao_atual;
   }
 
   get id_cliente() {
@@ -28,12 +30,20 @@ class Cliente {
     return this.#nome_cliente;
   }
 
+  get satisfacao_atual() {
+    return this.#satisfacao_atual;
+  }
+
   set id_cliente(id) {
     this.#id_cliente = id;
   }
 
   set nome_cliente(novoNome) {
     this.#nome_cliente = novoNome;
+  }
+
+  set satisfacao_atual(novaSatisfacao) {
+    this.#satisfacao_atual = novaSatisfacao;
   }
 }
 

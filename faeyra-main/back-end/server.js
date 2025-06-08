@@ -72,7 +72,7 @@ function verificarToken(req, res, next) {
 // Cadastro de jogador
 app.post('/cadastro', (req, res) => {
     const { nome, senha, dinheiro, chances } = req.body
-    const jogador = new Jogador(nome, dinheiro, chances)
+    const jogador = new Jogador(nome, senha, dinheiro, chances)
     jogador.senha = senha
 
     jogadorDAO.inserir(jogador, (err, results) => {
@@ -138,6 +138,17 @@ app.post('/produtos', (req, res) => {
         res.status(201).json({ message: 'Produto inserido com sucesso' })
     })
 })
+
+
+// Buscar cliente aleatório
+app.get('/clientes', (req, res) => {
+    clienteDAO.buscarAleatorio((err, cliente) => {
+        if (err) return res.status(500).json({ error: err.message });
+        if (!cliente) return res.status(404).json({ error: 'Nenhum cliente encontrado' });
+        res.json(cliente);
+    });
+});
+
 
 // Buscar pergunta aleatória
 app.get('/perguntas', (req, res) => {
