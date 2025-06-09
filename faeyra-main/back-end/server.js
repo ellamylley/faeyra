@@ -106,6 +106,20 @@ app.get('/jogadores', (req, res) => {
     })
 })
 
+// Listar respostas por id_pergunta
+app.get('/respostas/:id_pergunta', (req, res) => {
+    const id = req.params.id_pergunta;
+
+    respostaDAO.listarPorPergunta(id, (erro, resultados) => {
+        if (erro) {
+            res.status(500).json({ error: 'Erro ao buscar respostas.' });
+        } else {
+            res.json(resultados);
+        }
+    });
+});
+
+
 // Adicionar cliente
 app.post('/clientes', (req, res) => {
     const { id_especie, id_jogador, nome_cliente } = req.body
