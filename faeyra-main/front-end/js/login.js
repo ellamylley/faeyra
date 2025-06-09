@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     formLogin.addEventListener('submit', async (event) => {
         event.preventDefault()
-
         const nome = document.getElementById('login-nome').value
         const senha = document.getElementById('login-senha').value
 
@@ -18,9 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
             })
 
             if (resposta.ok) {
+                localStorage.setItem('nomeJogador', nome) 
+
                 alert('Login realizado com sucesso!')
                 window.location.href = '/faeyra-main/front-end/tutorial/paginatutorial.html'
-            } else {
+            }
+            else {
                 const erro = await resposta.json()
                 alert('Erro ao fazer login: ' + erro.error)
             }

@@ -24,7 +24,7 @@ function buscarCliente() {
             expressao = "raiva";
         }
 
-        const imagem = `/faeyra-main/front-end/imagens/clientes/${data.id_cliente}_${expressao}.jpg`;
+        const imagem = `/faeyra-main/front-end/imagens/clientes/${data.id_cliente}_${expressao}.png`;
         const personagem = document.getElementById("personagem").querySelector("img");
         personagem.src = imagem;
         document.getElementById("personagem").style.display = "flex";

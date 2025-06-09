@@ -21,9 +21,12 @@ document.getElementById('formularioCadastro').addEventListener('submit', async f
     const json = await resposta.json()
 
     if (resposta.ok) {
+      localStorage.setItem('nomeJogador', nome)
+    
       alert('Cadastro realizado com sucesso!')
       window.location.href = '/faeyra-main/front-end/tutorial/paginatutorial.html'
-    } else {
+    }
+    else {
       alert('Erro no cadastro: ' + json.error)
     }
   } catch (erro) {
