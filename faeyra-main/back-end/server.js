@@ -122,8 +122,8 @@ app.get('/respostas/:id_pergunta', (req, res) => {
 
 // Adicionar cliente
 app.post('/clientes', (req, res) => {
-    const { id_especie, id_jogador, nome_cliente } = req.body
-    const cliente = new Cliente(id_especie, id_jogador, nome_cliente)
+    const { id_especie, nome_cliente } = req.body
+    const cliente = new Cliente(id_especie, nome_cliente)
 
     clienteDAO.inserir(cliente, (err) => {
         if (err) return res.status(500).json({ error: err.message })

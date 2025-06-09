@@ -10,7 +10,6 @@ class ClienteDAO {
       CREATE TABLE IF NOT EXISTS cliente (
         id_cliente BIGINT AUTO_INCREMENT PRIMARY KEY,
         id_especie BIGINT,
-        id_jogador BIGINT,
         nome_cliente VARCHAR(20),
         satisfacao_atual INT,
         FOREIGN KEY (id_especie) REFERENCES especie(id_especie)
@@ -20,11 +19,10 @@ class ClienteDAO {
 
     inserir(cliente, callback) {
         const sql = `
-      INSERT INTO cliente(id_especie, id_jogador, nome_cliente, satisfacao_atual)
-      VALUES (?, ?, ?, ?);`;
+      INSERT INTO cliente(id_especie, nome_cliente, satisfacao_atual)
+      VALUES (?, ?, ?);`;
         this.connection.query(sql, [
             cliente.id_especie,
-            cliente.id_jogador,
             cliente.nome_cliente,
             cliente.satisfacao_atual
         ], callback);
