@@ -14,7 +14,7 @@ function atualizarVidas() {
 }
 
 function clienteFoiEmbora() {
-  ocultarDiv("personagem");
+  finalizarAtendimento();
   ocultarDiv("pergunta");
   ocultarDiv("respostas");
 

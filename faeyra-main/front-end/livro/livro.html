@@ -2,11 +2,11 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="stylesheet" href="paginatutorial.css">
+    <link rel="stylesheet" href="livro.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/faeyra-main/front-end/imagens/logopequena.png" type="image/x-icon">
-    <title>Faeyra | Tutorial</title>
+    <title>Faeyra | LIVRO</title>
 </head>
 
 <body>
@@ -19,76 +19,82 @@
         </div>
 
 
+        <div class="content-respostas">
+            <div id='p1' style="display: none;">
+                <header><h1>Alina</h1></header>
+                <img src="/faeyra-main/front-end/imagens/clientes/1_feliz.png" alt="">
+                <p>Espécie: Bruxa</p><br>
+                <p> Sempre vai jogar um charme para tentar a melhor. Se não caírem em seus truques elas partirão para as
+                    ameaças.</p>
+                <div id="b1">
+                    <button id="bp1" type="submit" onclick="mostrarDiv('p2')">Próximo</button>
+                </div>
+            </div>
 
-        <div id='p1' style="display: none;">
-            <h1>Alina</h1>
-            <p>Espécie: Bruxa
-            <p>
-            <p> Sempre vai jogar um charme para tentar a melhor. Se não caírem em seus truques elas partirão para as
-                ameaças.</p>
-            <div id="b1">
-                <button id="bp1" type="submit" onclick="mostrarDiv('p2')">Próximo</button>
+            <div id="p2" style="display: none;">
+                <h1>Orlok</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/2_feliz.png" alt="">
+                <p>Espécie: Orc</p>
+                <p> Ser brutamontes e sem muita paciência, cada passo precisa ser dado com cuidado ao estar perto dele.
+                </p>
+                <div id="b2">
+                    <button id="ba2" type="submit" onclick="ocultarDiv('p2')">Voltar</button>
+                    <button id="bp2" type="submit" onclick="mostrarDiv('p3')">Próximo</button>
+                </div>
+            </div>
+
+
+            <div id="p3" style="display: none;">
+                <h1>Aurius</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/3_feliz.png" alt="">
+                <p>Espécie: Serafim</p>
+                <p>Indiferente, mas não queira vê-lo sem paciência.</p>
+                <div id="b3">
+                    <button id="ba3" type="submit" onclick="ocultarDiv('p3')">Voltar</button>
+                    <button id="bp3" type="submit" onclick="mostrarDiv('p4')">Próximo</button>
+                </div>
+            </div>
+
+
+            <div id="p4" style="display: none;">
+                <h1>Kright</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/4_feliz.png" alt="">
+                <p>Espécie: Goblin</p>
+                <p>Conhecido por tentar passar a perna na maioria dos vendedores. Tome cuidado para não cair em suas
+                    conversas.
+                </p>
+                <div id="b4">
+                    <button id="ba4" type="submit" onclick="ocultarDiv('p4')">Voltar</button>
+                    <button id="bp4" type="submit" onclick="mostrarDiv('p5')">Próximo</button>
+                </div>
+            </div>
+
+            <div id="p5" style="display: none;">
+                <h1>Lancelot</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/5_feliz.png" alt="">
+                <p>Espécie: Elfo</p>
+                <p> Bonito e sereno, mas também muito impaciente e difícil de agradar.</p>
+                <div id="b5">
+                    <button id="ba5" type="submit" onclick="ocultarDiv('p5')">Voltar</button>
+                    <button id="bp5" type="submit" onclick="mostrarDiv('p6')">Próximo</button>
+                </div>
+            </div>
+
+
+            <div id="p6" style="display: none;">
+                <h1>Kayph</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/6_feliz.png" alt="">
+                <p>Espécie: Kobold</p>
+                <p> Brincalhão e animado. Difícel de irritar.</p>
+                <div id="b6">
+                    <button id="ba6" type="submit" onclick="ocultarDiv('p6')">Voltar</button>
+
+                </div>
             </div>
         </div>
 
-        <div id="p2" style="display: none;">
-            <h1>Orlok</h1>
-            <p>Espécie: Orc
-            <p>
-            <p> Ser brutamontes e sem muita paciência, cada passo precisa ser dado com cuidado ao estar perto dele.</p>
-            <div id="b2">
-                <button id="ba2" type="submit" onclick="ocultarDiv('p2')">Voltar</button>
-                <button id="bp2" type="submit" onclick="mostrarDiv('p2')">Próximo</button>
-            </div>
-        </div>
 
-    </div>
-
-    <div id="p3" style="display: none;">
-        <h1>Aurius</h1>
-        <p>Espécie: Serafim
-        <p>
-        <p> Ser brutamontes e sem muita paciência, cada passo precisa ser dado com cuidado ao estar perto dele.</p>
-        <div id="b3">
-            <button id="ba3" type="submit" onclick="ocultarDiv('pgTutorial3')">Voltar</button>
-            <button id="bp3" type="submit" onclick="mostrarDiv('pgTutorial4')">Próximo</button>
-        </div>
-    </div>
-
-
-    <div id="p4" style="display: none;">
-        <h1>Kright</h1>
-        <p>Espécie: Goblin</p>
-        <p> Ser brutamontes e sem muita paciência, cada passo precisa ser dado com cuidado ao estar perto dele.</p>
-        <div id="b4">
-            <button id="ba4" type="submit" onclick="ocultarDiv('pgTutorial4')">Voltar</button>
-            <button id="bp4" type="submit" onclick="mostrarDiv('pgTutorial5')">Próximo</button>
-        </div>
-    </div>
-
-    <div id="p5" style="display: none;">
-        <h1>Lancelot</h1>
-        <p>Espécie: Elfo
-        <p> Bonito e sereno, mas também muito impaciente e difícil de agradar.</p>
-        <div id="b5">
-            <button id="ba5" type="submit" onclick="ocultarDiv('pgTutorial5')">Voltar</button>
-            <button id="bp5" type="submit" onclick="mostrarDiv('pgTutorial6')">Próximo</button>
-        </div>
-    </div>
-
-
-    <div id="p6" style="display: none;">
-        <h1>Kayph</h1>
-        <p>Espécie: Kobold
-        <p> Brincalhão e animado. Difícel de irritar.</p>
-        <div id="b6">
-            <button id="ba6" type="submit" onclick="ocultarDiv('pgTutorial6')">Voltar</button>
-
-        </div>
-    </div>
-
-
-    <script src="/faeyra-main/front-end/front-functions/mostrarDiv.js"></script>
+        <script src="/faeyra-main/front-end/front-functions/mostrarDiv.js"></script>
 </body>
 
 </html>
