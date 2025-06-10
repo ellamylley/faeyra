@@ -101,7 +101,7 @@ app.post('/login', (req, res) => {
 })
 
 // Listar jogadores
-app.get('/jogadores', (req, res) => {
+app.get('/listajogadores', (req, res) => {
     jogadorDAO.listar((err, results) => {
         if (err) return res.status(500).json({ error: err.message })
         res.json(results)
@@ -123,7 +123,7 @@ app.get('/respostas/:id_pergunta', (req, res) => {
 
 
 // Adicionar cliente
-app.post('/clientes', (req, res) => {
+app.post('/addclientes', (req, res) => {
     const { id_especie, nome_cliente } = req.body
     const cliente = new Cliente(id_especie, nome_cliente)
 
@@ -134,7 +134,7 @@ app.post('/clientes', (req, res) => {
 })
 
 // Adicionar espécie
-app.post('/especie', (req, res) => {
+app.post('/addespecie', (req, res) => {
     const { nome_especie, satisfacao_minima } = req.body
     const especie = new Especie(nome_especie, satisfacao_minima)
 
@@ -145,7 +145,7 @@ app.post('/especie', (req, res) => {
 })
 
 // Adicionar produto
-app.post('/produtos', (req, res) => {
+app.post('/addprodutos', (req, res) => {
     const { nome_produto, preco } = req.body
     const produto = new Produto(nome_produto, preco)
 
@@ -156,7 +156,7 @@ app.post('/produtos', (req, res) => {
 })
 
 // Listar produtos
-app.get('/produtos', (req, res) => {
+app.get('/listarprodutos', (req, res) => {
     produtoDAO.listar((err, results) => {
         if (err) return res.status(500).json({ error: err.message })
         res.json(results)
@@ -164,7 +164,7 @@ app.get('/produtos', (req, res) => {
 })
 
 // Listar produtos (em estoque)
-app.get('/estoque', (req, res) => {
+app.get('/listarestoque', (req, res) => {
     estoqueDAO.listar((err, results) => {
         if (err) return res.status(500).json({ error: err.message })
         res.json(results)
@@ -172,7 +172,7 @@ app.get('/estoque', (req, res) => {
 })
 
 // Buscar cliente aleatório
-app.get('/clientes', (req, res) => {
+app.get('/buscaclientes', (req, res) => {
     clienteDAO.buscarAleatorio((err, cliente) => {
         if (err) return res.status(500).json({ error: err.message });
         if (!cliente) return res.status(404).json({ error: 'Nenhum cliente encontrado' });
@@ -202,6 +202,23 @@ app.post('/venda', (req, res) => {
     }
 
     if(id_produto_entregue === pedidoAtual.id) {
+        connection.query(
+            'SELECT preco_cliente FROM estoque WHERE id_produto = ? AND id_jogador = ?',
+            [id_produto_entregue, id_jogador],
+            (err, results) => {
+                if (err || results.length === 0) {
+                    return res.status(500).json({ sucesso: false, message: 'Erro ao buscar preço' });
+                }}
+            )
+                const preco = results[0].preco_cliente;
+                connection.query(
+                    'UPDATE jogador SET dinheiro = dinheiro + ? WHERE id = ?',
+                    [preco, id_jogador],
+                    (err2) => {
+                        if (err2) {
+                            return res.status(500).json({ sucesso: false, message: 'Erro ao atualizar dinheiro' });
+                        }})
+
         pedidoAtual = null
         return res.json({ sucesso: true, message: 'Produto correto.' })
     }
