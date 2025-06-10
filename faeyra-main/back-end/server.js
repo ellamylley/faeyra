@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
+const path = require('path')
 
 // DAOs
 const JogadorDAO = require('./database/DAO/jogadorDAO')
@@ -35,12 +36,13 @@ app.use(cors({
 app.use(express.json())
 app.use(bodyParser.json())
 app.use(cookieParser())
+app.use('/static', express.static(path.join(__dirname, '..', 'front-end')));
 
 // Conexão MySQL
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'root',
     database: 'db'
 })
 
@@ -122,8 +124,8 @@ app.get('/respostas/:id_pergunta', (req, res) => {
 
 // Adicionar cliente
 app.post('/clientes', (req, res) => {
-    const { id_especie, nome_cliente } = req.body
-    const cliente = new Cliente(id_especie, nome_cliente)
+    const { id_especie, id_jogador, nome_cliente } = req.body
+    const cliente = new Cliente(id_especie, id_jogador, nome_cliente)
 
     clienteDAO.inserir(cliente, (err) => {
         if (err) return res.status(500).json({ error: err.message })
@@ -153,6 +155,21 @@ app.post('/produtos', (req, res) => {
     })
 })
 
+// Listar produtos
+app.get('/produtos', (req, res) => {
+    produtoDAO.listar((err, results) => {
+        if (err) return res.status(500).json({ error: err.message })
+        res.json(results)
+    })
+})
+
+// Listar produtos (em estoque)
+app.get('/estoque', (req, res) => {
+    estoqueDAO.listar((err, results) => {
+        if (err) return res.status(500).json({ error: err.message })
+        res.json(results)
+    })
+})
 
 // Buscar cliente aleatório
 app.get('/clientes', (req, res) => {
@@ -163,6 +180,33 @@ app.get('/clientes', (req, res) => {
     });
 });
 
+// Escolha do produto pelo cliente
+let pedidoAtual = null;
+app.get('/randomProduto', (req, res) => {
+    produtoDAO.buscarAleatorio((err, produto) => {
+        if (err) return res.status(500).json({ error: err.message })
+        if (!produto) return res.status(404).json({ error: 'Produto não encontrado' })
+            pedidoAtual = produto
+        res.json(produto)
+    })
+})
+
+// Venda de produto para cliente
+app.post('/venda', (req, res) => {
+    const { id_produto_entregue } = req.body
+    if (!pedidoAtual) {
+        return res.status(400).json({sucesso: false, message: 'Pedido não relacionado.'})
+    }
+    if (!id_produto_entregue) {
+        return res.status(400).json({sucesso: false, message: 'ID do produto não encontrado'})
+    }
+
+    if(id_produto_entregue === pedidoAtual.id) {
+        pedidoAtual = null
+        return res.json({ sucesso: true, message: 'Produto correto.' })
+    }
+    return res.json({ sucesso: false, message: 'Produto incorreto.'})
+})
 
 // Buscar pergunta aleatória
 app.get('/perguntas', (req, res) => {
@@ -172,7 +216,7 @@ app.get('/perguntas', (req, res) => {
     })
 })
 
-// Comprar produto (adicionar ao estoque)
+// Comprar produto (adicionar ao estoque; função descartada)
 app.post('/comprar', verificarToken, (req, res) => {
     const { id_produto, quantidade, preco_cliente } = req.body
     const estoque = new Estoque(id_produto, req.id_jogador, quantidade, preco_cliente)
@@ -180,6 +224,27 @@ app.post('/comprar', verificarToken, (req, res) => {
     estoqueDAO.inserir(estoque, (err) => {
         if (err) return res.status(500).json({ error: err.message })
         res.status(201).json({ message: 'Compra realizada com sucesso' })
+    })
+})
+
+// Atualizar jogador
+app.put('/jogadores/:id', (req, res) => {
+    const id = req.params.id;
+    const { nome, senha, dinheiro, chances } = req.body;
+    const jogador = new Jogador(nome, senha, dinheiro, chances)
+    
+    jogadorDAO.atualizarJogador(id, jogador, (err, results) => {
+        if (err) throw new err;
+        res.json({ message: 'Jogador atualizado' })
+    })
+})
+
+// Deletar jogador
+app.delete('/jogadores/:id', (req, res) => {
+    const id = req.params.id
+    jogadorDAO.deletar(id, (err, results) => {
+        if (err) throw new err;
+        res.json({message: 'Jogador deletado'})
     })
 })
 
