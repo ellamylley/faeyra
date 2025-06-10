@@ -8,7 +8,7 @@ class RespostaDAO {
             CREATE TABLE IF NOT EXISTS resposta (
                 id_resposta BIGINT AUTO_INCREMENT PRIMARY KEY,
                 id_pergunta BIGINT,
-                texto VARCHAR(20),
+                texto VARCHAR(200),
                 peso_satisfacao INT,
                 FOREIGN KEY (id_pergunta) REFERENCES pergunta(id_pergunta)
             );
