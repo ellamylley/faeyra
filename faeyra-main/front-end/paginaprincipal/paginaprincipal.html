@@ -48,7 +48,7 @@
             <iframe width="350" src="/faeyra-main/front-end/calculadora/calculadora.html"></iframe>
 
             <div class="close">
-                <button id="fecharCalculadora">close</button>
+                <button id="fecharCalculadora">fechar</button>
             </div>
         </div>
         <div id="personagem" style="display: none;">
@@ -64,11 +64,34 @@
             <div id="fecharBoasVindas" style="display: flex;" onclick="ocultarDiv('mensagemBoasVindas')">X</div>
         </div>
 
+        <button id="exibirEstoque" onclick="mostrarDiv('estoque')">ESTOQUE</button>
+        <div id="estoque" style="display: none;">
+            <button id="fecharEstoque" onclick="ocultarDiv('estoque')">fechar</button>
+
+            <div id="prateleira1">
+                <div id="produto1"></div>
+                <div id="produto2"></div>
+                <div id="produto3"></div>
+                <div id="produto4"></div>
+            </div>
+            <div id="prateleira2">
+                <div id="produto5"></div>
+                <div id="produto6"></div>
+                <div id="produto7"></div>
+                <div id="produto8"></div>
+            </div>
+            <div id="prateleira3">
+                <div id="produto9"></div>
+                <div id="produto10"></div>
+                <div id="produto11"></div>
+                <div id="produto12"></div>
+            </div>
+        </div>
 
 
         <div id="pergunta" style="display: none;"></div>
 
-        <div id="respostas">
+        <div id="respostas" style="display: none;">
             <div id="resposta1"></div>
             <div id="resposta2"></div>
             <div id="resposta3"></div>
@@ -100,6 +123,8 @@
     <script src="../../front-end/front-functions/mostrarDiv.js"></script>
     <script src="../js/cliente.js"></script>
     <script src="../js/pergunta.js"></script>
+    <script src="../js/resposta.js"></script>
+    <script src="../js/jogo.js"></script>
     <script src="../js/atendimento.js"></script>
 
 </body>
