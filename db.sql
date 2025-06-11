@@ -156,18 +156,18 @@ CREATE TABLE `produto` (
 --
 
 INSERT INTO `produto` (`id_produto`, `nome_produto`, `preco`) VALUES
-(1, 'adaga', 99.99),
-(2, 'asas de morcego', 99.99),
-(3, 'caldeirão', 99.99),
-(4, 'frascos', 30.00),
-(5, 'olhos de serpente', 99.99),
-(6, 'crânio de tiefling', 99.99),
-(7, 'dente de orc', 70.00),
-(8, 'chifre de minotauro', 99.99),
-(9, 'anis estrelado', 99.99),
-(10, 'escama de kobold', 90.00),
-(11, 'escudo', 99.99),
-(12, 'flechas', 70.00);
+(1, 'adaga', 46),
+(2, 'asas de morcego', 32),
+(3, 'caldeirão', 50),
+(4, 'frascos', 19),
+(5, 'olhos de serpente', 70),
+(6, 'crânio de tiefling', 55),
+(7, 'dente de orc', 20),
+(8, 'chifre de minotauro', 86),
+(9, 'anis estrelado', 10),
+(10, 'escama de kobold', 34),
+(11, 'escudo', 97),
+(12, 'flechas', 15);
 
 -- --------------------------------------------------------
 
