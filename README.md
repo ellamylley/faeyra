@@ -23,7 +23,7 @@ Sim.
 
 2: Há algum problema/erro identificado no código ou execução?
 
-Apenas nas funções para alterar e deletar dados no banco, por ter sido implementado posteriormente.
+Os testes foram realizados apenas em relação ao banco de dados.
 
 3: Descrição da experiência
 
