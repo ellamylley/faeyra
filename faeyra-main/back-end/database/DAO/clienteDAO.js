@@ -38,6 +38,23 @@ class ClienteDAO {
         this.connection.query(sql, callback);
     }
 
+    atualizarCliente(id, cliente, callback) {
+        const sql = 'UPDATE cliente SET id_especie = ?, nome_cliente = ?, satisfacao_atual =? WHERE id_cliente = ?'
+        const valores = [cliente.id_especie, cliente.nome_cliente, cliente.satisfacao_atual, id]
+        this.connection.query(sql, valores, (err, results) => {
+            if (err) return callback(err)
+            callback(null)
+        })
+    }
+
+    deletarCliente(id, callback) {
+  const sql = `DELETE FROM cliente WHERE id_cliente = ?`;
+  this.connection.query(sql, [id], (err, results) => {
+    if (err) return callback(err);
+    callback(null);
+  });
+    }
+
     buscarAleatorio(callback) {
     const sql = `
         SELECT c.*, e.satisfacao_minima 

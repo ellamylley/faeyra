@@ -85,7 +85,7 @@ app.post('/cadastro', (req, res) => {
 
 // Login
 app.post('/login', (req, res) => {
-    const { nome, senha } = req.body
+    const { nome, senha, dinheiro } = req.body
 
     jogadorDAO.buscarJogador(nome, (err, jogador) => {
 
@@ -94,9 +94,14 @@ app.post('/login', (req, res) => {
             return res.status(401).json({ error: 'Usuário ou senha incorreta' })
         }
 
-        const token = jwt.sign({ id: jogador.id, nome: jogador.nome }, SECRET, { expiresIn: '24h' })
+        const token = jwt.sign({ id: jogador.id, nome: jogador.nome, dinheiro: jogador.dinheiro }, SECRET, { expiresIn: '24h' })
         res.cookie('token', token, { httpOnly: true })
-        res.json({ message: 'Login realizado' })
+        res.json({
+            message: 'Login realizado',
+            nome: jogador.nome,
+            dinheiro: jogador.dinheiro
+        })
+
     })
 })
 
@@ -156,7 +161,8 @@ app.post('/produtos', (req, res) => {
 })
 
 // Listar produtos
-app.get('/produtos', (req, res) => {
+app.get('/listaProduto', (req, res) => {
+
     produtoDAO.listar((err, results) => {
         if (err) return res.status(500).json({ error: err.message })
         res.json(results)
@@ -181,12 +187,10 @@ app.get('/clientes', (req, res) => {
 });
 
 // Escolha do produto pelo cliente
-let pedidoAtual = null;
-app.get('/randomProduto', (req, res) => {
+app.get('/produtoAleatorio', (req, res) => {
     produtoDAO.buscarAleatorio((err, produto) => {
         if (err) return res.status(500).json({ error: err.message })
         if (!produto) return res.status(404).json({ error: 'Produto não encontrado' })
-            pedidoAtual = produto
         res.json(produto)
     })
 })
@@ -195,17 +199,17 @@ app.get('/randomProduto', (req, res) => {
 app.post('/venda', (req, res) => {
     const { id_produto_entregue } = req.body
     if (!pedidoAtual) {
-        return res.status(400).json({sucesso: false, message: 'Pedido não relacionado.'})
+        return res.status(400).json({ sucesso: false, message: 'Pedido não relacionado.' })
     }
     if (!id_produto_entregue) {
-        return res.status(400).json({sucesso: false, message: 'ID do produto não encontrado'})
+        return res.status(400).json({ sucesso: false, message: 'ID do produto não encontrado' })
     }
 
-    if(id_produto_entregue === pedidoAtual.id) {
+    if (id_produto_entregue === pedidoAtual.id) {
         pedidoAtual = null
         return res.json({ sucesso: true, message: 'Produto correto.' })
     }
-    return res.json({ sucesso: false, message: 'Produto incorreto.'})
+    return res.json({ sucesso: false, message: 'Produto incorreto.' })
 })
 
 // Buscar pergunta aleatória
@@ -230,9 +234,9 @@ app.post('/comprar', verificarToken, (req, res) => {
 // Atualizar jogador
 app.put('/jogadores/:id', (req, res) => {
     const id = req.params.id;
-    const { nome, senha, dinheiro, chances } = req.body;
-    const jogador = new Jogador(nome, senha, dinheiro, chances)
-    
+    const { nome, senha } = req.body;
+    const jogador = new Jogador(nome, senha)
+
     jogadorDAO.atualizarJogador(id, jogador, (err, results) => {
         if (err) throw new err;
         res.json({ message: 'Jogador atualizado' })
@@ -242,9 +246,9 @@ app.put('/jogadores/:id', (req, res) => {
 // Deletar jogador
 app.delete('/jogadores/:id', (req, res) => {
     const id = req.params.id
-    jogadorDAO.deletar(id, (err, results) => {
+    jogadorDAO.deletarJogador(id, (err, results) => {
         if (err) throw new err;
-        res.json({message: 'Jogador deletado'})
+        res.json({ message: 'Jogador deletado' })
     })
 })
 
