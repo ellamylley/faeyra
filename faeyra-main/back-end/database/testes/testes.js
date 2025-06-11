@@ -28,13 +28,14 @@ const perguntaDAO = new PerguntaDAO(connection);
 const respostaDAO = new RespostaDAO(connection);
 const estoqueDAO = new EstoqueDAO(connection);
 
-const jogadorTeste = new Jogador('Manu', 100.00, 3);
+const jogadorTeste = new Jogador('Manu', 'manusenha', 100.00, 3);
 const especieTeste = new Especie('GNOMO', 90);
 const produtoTeste = new Produto('OLHO', 10.00);
 const clienteTeste = new Cliente(1, 1, 'Aurora');
 const perguntaTeste = new Pergunta('Qual o seu nome?');
 const respostaTeste = new Resposta(1, 'AURORA');
 const estoqueTeste = new Estoque(1, 1, 10, 5.50);
+const jogadorTesteUpdate = new Jogador('NovaManu', 'novamanusenha', 100.00, 3)
 
 function conectar() {
   connection.connect((err) => {
@@ -71,8 +72,9 @@ function criarTabelas() {
 
 
 function inserirDados() {
-  jogadorDAO.inserir(jogadorTeste, (err) => {
+  jogadorDAO.inserir(jogadorTeste, (err, idTeste) => {
     if (err) return console.error('Erro jogador:', err);
+    jogadorTeste.id = idTeste
 
     especieDAO.inserir(especieTeste, (err) => {
       if (err) return console.error('Erro espécie:', err);
@@ -92,6 +94,8 @@ function inserirDados() {
               respostaDAO.inserir(respostaTeste, (err) => {
                 if (err) return console.error('Erro resposta:', err);
 
+                alterarDados();
+                deletarDados(jogadorTeste.idTeste);
                 buscarEListar();
               });
             });
@@ -152,6 +156,19 @@ function buscarEListar() {
     });
   });
 
+}
+
+function alterarDados() {
+  const id = jogadorTeste.id
+  jogadorDAO.atualizarJogador(id, jogadorTesteUpdate, (err) => {
+    if (err) return console.error('Erro ao alterar jogador', err)
+  })
+}
+
+function deletarDados(id) {
+  jogadorDAO.deletarJogador(id, (err) => {
+    if (err) return console.error('Erro ao deletar jogador', err);
+  })
 }
 
 // Iniciar testes
