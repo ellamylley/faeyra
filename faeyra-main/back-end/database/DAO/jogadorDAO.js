@@ -18,7 +18,10 @@ class JogadorDAO {
 
   inserir(jogador, callback) {
     const sql = 'INSERT INTO jogador(nome, senha, dinheiro, chances) VALUES (?, ?, ?, ?);';
-    this.connection.query(sql, [jogador.nome, jogador.senha, jogador.dinheiro, jogador.chances], callback);
+    this.connection.query(sql, [jogador.nome, jogador.senha, jogador.dinheiro, jogador.chances], (err, results) => {
+      if (err) return callback(err)
+      callback(null, results.insertId)
+    });
   }
 
   listar(callback) {
@@ -38,6 +41,23 @@ class JogadorDAO {
         callback(null, results[0])
     })
 }
+
+  atualizarJogador(id, jogador, callback) {
+    const sql = 'UPDATE jogador SET nome = ?, senha = ? WHERE nome = ?'
+    const valores = [jogador.nome, jogador.senha, id]
+    this.connection.query(sql, [id], (err, results) => {
+      if (err) return callback(err)
+        callback(null, results[0])
+    })
+  }
+
+  deletarJogador(nome, jogador, callback) {
+    const sql = 'DELETE FROM jogador WHERE nome = ?'
+    this.connection.query(sql, [nome], (err, results) => {
+      if (err) return callback(err)
+        callback(null, results[0])
+    })
+  }
 
 }
 

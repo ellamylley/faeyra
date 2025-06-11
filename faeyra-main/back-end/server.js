@@ -234,8 +234,8 @@ app.post('/comprar', verificarToken, (req, res) => {
 // Atualizar jogador
 app.put('/jogadores/:id', (req, res) => {
     const id = req.params.id;
-    const { nome, senha, dinheiro, chances } = req.body;
-    const jogador = new Jogador(nome, senha, dinheiro, chances)
+    const { nome, senha } = req.body;
+    const jogador = new Jogador(nome, senha)
 
     jogadorDAO.atualizarJogador(id, jogador, (err, results) => {
         if (err) throw new err;
@@ -246,7 +246,7 @@ app.put('/jogadores/:id', (req, res) => {
 // Deletar jogador
 app.delete('/jogadores/:id', (req, res) => {
     const id = req.params.id
-    jogadorDAO.deletar(id, (err, results) => {
+    jogadorDAO.deletarJogador(id, (err, results) => {
         if (err) throw new err;
         res.json({ message: 'Jogador deletado' })
     })

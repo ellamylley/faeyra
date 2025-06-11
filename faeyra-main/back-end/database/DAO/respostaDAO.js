@@ -38,6 +38,22 @@ class RespostaDAO {
         this.connection.query(sql, callback);
     }
 
+    atualizarResposta(id, resposta, callback) {
+  const sql = ` UPDATE resposta SET id_pergunta = ?, texto = ?, peso_satisfacao = ? WHERE id_resposta = ? `;
+  const valores = [resposta.id_pergunta, resposta.texto, resposta.peso_satisfacao, id];
+  this.connection.query(sql, valores, (err, results) => {
+    if (err) return callback(err);
+    callback(null);
+  });
+}
+
+deletarResposta(id, callback) {
+  const sql = `DELETE FROM resposta WHERE id_resposta = ?`;
+  this.connection.query(sql, [id], (err, result) => {
+    if (err) return callback(err);
+    callback(null);
+  });
+}
 
     listarPorPergunta(id_pergunta, callback) {
         const sql = `SELECT * FROM resposta WHERE id_pergunta = ?`;

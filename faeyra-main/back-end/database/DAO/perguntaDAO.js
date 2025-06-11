@@ -28,6 +28,23 @@ class PerguntaDAO {
         this.connection.query(sql, callback);
     }
 
+    atualizarPergunta(id, pergunta, callback) {
+        const sql = 'UPDATE pergunta SET texto = ? WHERE id = ?'
+        const valores = [pergunta.texto, id]
+        this.connection.query(sql, valores, (err, results) => {
+            if (err) return callback(err)
+                callback(null)
+        })
+    }
+
+    deletarPergunta(id, callback) {
+        const sql = 'DELETE FROM pergunta WHERE id = ?'
+        this.connection.query(sql, [id], (err, results) => {
+            if (err) return callback(err)
+            callback(null)
+        })
+    }
+
     buscarAleatorio(callback) {
         const sql = `SELECT * FROM pergunta ORDER BY RAND() LIMIT 1`;
 
