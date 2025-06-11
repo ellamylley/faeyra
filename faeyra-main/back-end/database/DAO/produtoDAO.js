@@ -32,6 +32,22 @@ class ProdutoDAO {
     this.connection.query(sql, callback);
   }
 
+  atualizarProduto(id, produto, callback) {
+  const sql = `UPDATE produto SET nome_produto = ?, preco = ? WHERE id = ?`;
+  const valores = [produto.nome_produto, produto.preco, id];
+  this.connection.query(sql, valores, (err, result) => {
+    if (err) return callback(err);
+    callback(null);
+  });
+}
+
+deletarProduto(id, callback) {
+  const sql = `DELETE FROM produto WHERE id = ?`;
+  this.connection.query(sql, [id], (err, result) => {
+    if (err) return callback(err);
+    callback(null);
+  });
+}
 
   buscarAleatorio(callback) {
     const sql = `SELECT * FROM produto ORDER BY RAND() LIMIT 1`;
