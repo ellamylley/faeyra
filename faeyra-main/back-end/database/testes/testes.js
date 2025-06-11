@@ -46,6 +46,7 @@ function conectar() {
 }
 
 function criarTabelas() {
+  console.log('Criando tabelas')
   jogadorDAO.criarTabela((err) => {
     if (err) return console.error('Erro ao criar jogador:', err);
     especieDAO.criarTabela((err) => {
@@ -72,6 +73,7 @@ function criarTabelas() {
 
 
 function inserirDados() {
+  console.log('Inserindo dados')
   jogadorDAO.inserir(jogadorTeste, (err, idJogadorTeste) => {
     if (err) return console.error('Erro jogador:', err);
     jogadorTeste.id = idJogadorTeste
@@ -104,9 +106,7 @@ function inserirDados() {
                 if (err) return console.error('Erro resposta:', err);
                 respostaTeste.id = idResposta
 
-                alterarDados();
-                deletarDados(jogadorTeste.id);
-                buscarEListar();
+               buscarEListar();
               });
             });
           });
@@ -117,6 +117,7 @@ function inserirDados() {
 }
 
 function buscarEListar() {
+  console.log('Buscar e listar')
   perguntaDAO.buscarAleatorio((err, pergunta) => {
     if (err) return console.error("Erro buscar pergunta:", err);
     console.log("Pergunta aleatória:", pergunta);
@@ -153,6 +154,8 @@ function buscarEListar() {
                     console.log('\nEstoque:');
                     console.table(estoque);
 
+                    // deletarDados()
+
                     connection.end(() => {
                       console.log('\nTeste finalizado.');
                     });
@@ -165,69 +168,67 @@ function buscarEListar() {
       });
     });
   });
+} 
 
-}
+//   function alterarDados() {
+//   const id = jogadorTeste.id
+//   jogadorDAO.atualizarJogador(jogadorTeste.id, jogadorTesteUpdate, (err) => {
+//     if (err) return console.error('Erro ao alterar jogador', err)
+//   })
 
-function alterarDados() {
-  const id = jogadorTeste.id
-  jogadorDAO.atualizarJogador(jogadorTeste.id, jogadorTesteUpdate, (err) => {
-    if (err) return console.error('Erro ao alterar jogador', err)
-  })
+//   especieDAO.atualizarEspecie(especieTeste.id, { nome_especie: 'GOBLIN', satisfacao_minima: 85 }, (err) => {
+//     if (err) return console.error('Erro ao alterar espécie', err);
+//   });
 
-  especieDAO.atualizarEspecie(especieTeste.id, new Especie('GOBLIN', 85), (err) => {
-    if (err) return console.error('Erro ao alterar espécie', err);
-  });
+//   produtoDAO.atualizarProduto(produtoTeste.id, { nome_produto: 'file de sereia', preco: '15.00' }, (err) => {
+//     if (err) return console.error('Erro ao alterar produto', err);
+//   });
 
-  produtoDAO.atualizarProduto(produtoTeste.id, new Produto('OLHO MODIFICADO', 20.00), (err) => {
-    if (err) return console.error('Erro ao alterar produto', err);
-  });
+//   clienteDAO.atualizarCliente(clienteTeste.id, { id_especie: especieTeste.id, nome_cliente: 'Rubens', satisfacao_atual: 80}, (err) => {
+//     if (err) return console.error('Erro ao alterar cliente', err);
+//   });
 
-  clienteDAO.atualizarCliente(clienteTeste.id, new Cliente(especieTeste.id, 'Aurora MODIFICADA', 80), (err) => {
-    if (err) return console.error('Erro ao alterar cliente', err);
-  });
+//   perguntaDAO.atualizarPergunta(perguntaTeste.id, { texto: 'Qual a sua banda favorita?' }, (err) => {
+//     if (err) return console.error('Erro ao alterar pergunta', err);
+//   });
 
-  perguntaDAO.atualizarPergunta(perguntaTeste.id, new Pergunta('Qual seu monstro favorito?'), (err) => {
-    if (err) return console.error('Erro ao alterar pergunta', err);
-  });
+//   respostaDAO.atualizarResposta(respostaTeste.id, { id_pergunta: perguntaTeste.id, texto: 'Vasco', peso_satisfacao: -60 }, (err) => {
+//     if (err) return console.error('Erro ao alterar resposta', err);
+//   });
 
-  respostaDAO.atualizarResposta(respostaTeste.id, new Resposta(perguntaTeste.id, 'DRAGÃO', 10), (err) => {
-    if (err) return console.error('Erro ao alterar resposta', err);
-  });
+//   console.log('Dados inseridos')
+//   deletarDados()
+// }
 
-  estoqueDAO.atualizarEstoque(estoqueTeste.id, new Estoque(jogadorTeste.id, produtoTeste.id, 30, 12.75), (err) => {
-    if (err) return console.error('Erro ao alterar estoque', err);
-  });
-}
+// function deletarDados() {
+//   // jogadorDAO.deletarJogador(jogadorTesteUpdate.nome, (err) => {
+//   //   if (err) return console.error('Erro ao deletar jogador', err);
+//   // })
 
-function deletarDados(id) {
-  jogadorDAO.deletarJogador(id, (err) => {
-    if (err) return console.error('Erro ao deletar jogador', err);
-  })
+//   especieDAO.deletarEspecie(especieTeste.id, (err) => {
+//     if (err) return console.error('Erro ao deletar espécie', err);
+//   });
 
-  especieDAO.deletarEspecie(especieTeste.id, (err) => {
-    if (err) return console.error('Erro ao deletar espécie', err);
-  });
+//   produtoDAO.deletarProduto(produtoTeste.id, (err) => {
+//     if (err) return console.error('Erro ao deletar produto', err);
+//   });
 
-  produtoDAO.deletarProduto(produtoTeste.id, (err) => {
-    if (err) return console.error('Erro ao deletar produto', err);
-  });
+//   clienteDAO.deletarCliente(clienteTeste.id, (err) => {
+//     if (err) return console.error('Erro ao deletar cliente', err);
+//   });
 
-  clienteDAO.deletarCliente(clienteTeste.id, (err) => {
-    if (err) return console.error('Erro ao deletar cliente', err);
-  });
+//   perguntaDAO.deletarPergunta(perguntaTeste.id, (err) => {
+//     if (err) return console.error('Erro ao deletar pergunta', err);
+//   });
 
-  perguntaDAO.deletarPergunta(perguntaTeste.id, (err) => {
-    if (err) return console.error('Erro ao deletar pergunta', err);
-  });
+//   respostaDAO.deletarResposta(respostaTeste.id, (err) => {
+//     if (err) return console.error('Erro ao deletar resposta', err);
+//   });
 
-  respostaDAO.deletarResposta(respostaTeste.id, (err) => {
-    if (err) return console.error('Erro ao deletar resposta', err);
-  });
+//   console.log('Dados deletados')
 
-  estoqueDAO.deletarEstoque(estoqueTeste.id, (err) => {
-    if (err) return console.error('Erro ao deletar estoque', err);
-  });
-}
+// } 
+
 
 // Iniciar testes
 conectar();
