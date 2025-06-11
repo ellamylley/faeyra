@@ -17,14 +17,21 @@ Integrantes
   - Atividades: front-end, ideias
 
 Perguntas
-1. Tudo o que foi pedido foi realizado? O que faltou desenvolver?
-    - 
-2. Há algum problema/erro identificado no código ou execução?
-    - 
-3. Descrição da experiência:
-    - 
-4. Dificuldades encontradas:
-    -
+1: Tudo o que foi pedido foi realizado?
+Sim. 
+
+2: Há algum problema/erro identificado no código ou execução?
+Apenas nas funções para alterar e deletar dados no banco, por ter sido implementado posteriormente.
+
+3: Descrição da experiência
+Foi extremamente desafiador para os 4 membros, principalmente pelo prazo curto e pela ideia do projeto ter sido ambiciosa.
+Apesar disso, foi um processo de aprenzidado importante, por ser nossa primeira experiência prática ao integrar tudo o que
+aprendemos durante o ano nas 3 matérias.
+
+4: Dificuldades encontradas
+Por ser um projeto complexo, e não termos experiência prévia com um jogo construído também com partes visuais,
+foi necessário muito estudo e muito tempo dedicado a correções. O prazo mais curto do que o ideal também dificultou
+o processo, principalmente por ser fim de bimestre para outras matérias que temos.
 
 Referências
 Como colocar áudio numa página HTML:
