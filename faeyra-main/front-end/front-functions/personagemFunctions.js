@@ -1,7 +1,7 @@
 function moverPersonagem(entrarOuSair, callback) {
   const container = document.getElementById("personagem");
   const botaoIniciar = document.getElementById("start");
-  const botaoFinalizar = document.getElementById("end");
+  // const botaoFinalizar = document.getElementById("end");
   let acao = entrarOuSair;
   let posicao;
   let destino;
@@ -11,7 +11,7 @@ function moverPersonagem(entrarOuSair, callback) {
     posicao = -150;
     destino = 400;
     botaoIniciar.style.display = "none";
-    botaoFinalizar.style.display = "flex";
+    // botaoFinalizar.style.display = "flex";
   }
 
   if (acao === "sair") {
@@ -33,8 +33,8 @@ function moverPersonagem(entrarOuSair, callback) {
       clearInterval(intervalo);
 
       if (acao === "sair") {
-        container.style.display = "none"; // Só some depois da animação
-        botaoFinalizar.style.display = "none";
+        container.style.display = "none";
+        // botaoFinalizar.style.display = "none";
         botaoIniciar.style.display = "flex";
       }
 

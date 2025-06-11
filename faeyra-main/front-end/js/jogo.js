@@ -1,4 +1,6 @@
-let vidas = 3;
+let vidas = 3; //Vidas iniciais
+
+//função que atualiza as estrelas
 function atualizarVidas() {
   const container = document.getElementById("vidas");
   if (!container) return;
@@ -13,22 +15,27 @@ function atualizarVidas() {
   }
 }
 
+
 function clienteFoiEmbora() {
-  finalizarAtendimento();
-  ocultarDiv("pergunta");
-  ocultarDiv("respostas");
-
-
+  ocultarDiv('respostas');
+  respostaFinal();
   vidas--;
   atualizarVidas();
 
   if (vidas <= 0) {
-    mostrarDiv("telaGameOver");
+    mostrarDiv("telaFimdeJogo");
   } else {
+    finalizarAtendimento();
+  }
 
-    setTimeout(() => {
-      buscarCliente();
-      mostrarDiv("personagem");
-    }, 1000);
+}
+
+
+function respostaFinal() {
+  mostrarDiv('pergunta')
+  if (satisfacaoAtual < 40) {
+    document.getElementById('pergunta').textContent = `Nunca mais volto aqui`;
+  } else {
+    document.getElementById('pergunta').textContent = `Obrigado`;
   }
 }

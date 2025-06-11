@@ -17,9 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
             })
 
             if (resposta.ok) {
-                localStorage.setItem('nomeJogador', nome) 
+                const dados = await resposta.json(); 
 
-                alert('Login realizado com sucesso!')
+                localStorage.setItem('nomeJogador', dados.nome);
+                localStorage.setItem('dinheiro', dados.dinheiro);
+
+                alert('Login realizado com sucesso!');
                 window.location.href = '/faeyra-main/front-end/tutorial/paginatutorial.html'
             }
             else {

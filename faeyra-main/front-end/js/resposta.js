@@ -10,15 +10,12 @@ function buscarRespostas(idPergunta) {
             divResposta.innerHTML = `
               <span class="textoResposta">${resposta.texto}</span>
             `;
-           
+            mostrarDiv('respostas')
+
             divResposta.onclick = () => {
-              satisfacaoAtual = (satisfacaoAtual || 0) + resposta.peso_satisfacao;
+
               atualizarExpressaoCliente(satisfacaoAtual);
-
-              ocultarDiv('pergunta');
-              ocultarDiv('respostas');
-
-              // console.log('Satisfação atualizada:', satisfacaoAtual);
+              finalizarAtendimento();
             };
 
           } else {

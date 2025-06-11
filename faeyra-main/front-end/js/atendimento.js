@@ -3,16 +3,16 @@ function iniciarAtendimento() {
   buscarCliente();
 
   moverPersonagem('entrar', () => {
-    buscarPergunta();
     mostrarDiv('pergunta');
-    mostrarDiv('respostas');
-    
+    pedirProdutoAleatorio();
+    console.log(satisfacaoAtual)
+
   });
 }
 
 function finalizarAtendimento() {
-  ocultarDiv('end')
   ocultarDiv('pergunta');
+  ocultarDiv('respostas');
   moverPersonagem('sair', () => {
 
   });

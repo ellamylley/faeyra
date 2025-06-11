@@ -1,5 +1,5 @@
 document.getElementById('formularioCadastro').addEventListener('submit', async function (e) {
-  e.preventDefault()
+  e.preventDefault();
 
   const nome = document.getElementById('cadastro-nome').value
   const senha = document.getElementById('cadastro-senha').value
@@ -22,6 +22,7 @@ document.getElementById('formularioCadastro').addEventListener('submit', async f
 
     if (resposta.ok) {
       localStorage.setItem('nomeJogador', nome)
+      localStorage.setItem('dinheiro', dados.dinheiro)
     
       alert('Cadastro realizado com sucesso!')
       window.location.href = '/faeyra-main/front-end/tutorial/paginatutorial.html'

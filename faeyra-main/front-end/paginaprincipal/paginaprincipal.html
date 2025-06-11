@@ -55,9 +55,11 @@
             <img>
         </div>
 
-        <div id="livro">
-            <img src="/faeyra-main/front-end/imagens/livro.png">
-        </div>
+        <a href="/faeyra-main/front-end/livro/livro.html">
+            <div id="livro">
+                <img src="/faeyra-main/front-end/imagens/livro.png">
+            </div>
+        </a>
 
         <div id="mensagemBoasVindas">
             <div id="boasVindas" style="display: flex;"></div>
@@ -69,22 +71,22 @@
             <button id="fecharEstoque" onclick="ocultarDiv('estoque')">fechar</button>
 
             <div id="prateleira1">
-                <div id="produto1"></div>
-                <div id="produto2"></div>
-                <div id="produto3"></div>
-                <div id="produto4"></div>
+                <div id="produto1" class="produto"><img></div>
+                <div id="produto2" class="produto"><img></div>
+                <div id="produto3" class="produto"><img></div>
+                <div id="produto4" class="produto"><img></div>
             </div>
             <div id="prateleira2">
-                <div id="produto5"></div>
-                <div id="produto6"></div>
-                <div id="produto7"></div>
-                <div id="produto8"></div>
+                <div id="produto5" class="produto"><img></div>
+                <div id="produto6" class="produto"><img></div>
+                <div id="produto7" class="produto"><img></div>
+                <div id="produto8" class="produto"><img></div>
             </div>
             <div id="prateleira3">
-                <div id="produto9"></div>
-                <div id="produto10"></div>
-                <div id="produto11"></div>
-                <div id="produto12"></div>
+                <div id="produto9" class="produto"><img></div>
+                <div id="produto10" class="produto"><img></div>
+                <div id="produto11" class="produto"><img></div>
+                <div id="produto12" class="produto"><img></div>
             </div>
         </div>
 
@@ -105,13 +107,22 @@
 
         <div id="dinheiro"></div>
 
+        <div id="carrinho"></div>
+
+        <div id="caixaRegistradora" style="display: none;">
+            <input type="number" id="valorTotal" placeholder="Digite o valor da compra"></input>
+            <button id="verificarPedido" onclick="verificarPedido();">Entregar pedido</button>
+        </div>
+
         <div id="start" style="display:flex;">
             <button onclick="iniciarAtendimento();">Iniciar atendimento</button>
         </div>
 
-        <div id="end" style="display: none;">
+
+
+        <!-- <div id="end" style="display: none;">
             <button onclick="finalizarAtendimento()">Finalizar atendimento</button>
-        </div>
+        </div> -->
 
 
     </div>
@@ -125,6 +136,7 @@
     <script src="../js/pergunta.js"></script>
     <script src="../js/resposta.js"></script>
     <script src="../js/jogo.js"></script>
+    <script src="../js/produtos.js"></script>
     <script src="../js/atendimento.js"></script>
 
 </body>
