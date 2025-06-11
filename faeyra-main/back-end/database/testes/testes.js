@@ -31,7 +31,7 @@ const estoqueDAO = new EstoqueDAO(connection);
 const jogadorTeste = new Jogador('Manu', 'manusenha', 100.00, 3);
 const especieTeste = new Especie('GNOMO', 90);
 const produtoTeste = new Produto('OLHO', 10.00);
-const clienteTeste = new Cliente(1, 1, 'Aurora');
+const clienteTeste = new Cliente(1, 'Aurora', 70);
 const perguntaTeste = new Pergunta('Qual o seu nome?');
 const respostaTeste = new Resposta(1, 'AURORA');
 const estoqueTeste = new Estoque(1, 1, 10, 5.50);
@@ -105,7 +105,7 @@ function inserirDados() {
                 respostaTeste.id = idResposta
 
                 alterarDados();
-                deletarDados(jogadorTeste.idJogadorTeste);
+                deletarDados(jogadorTeste.id);
                 buscarEListar();
               });
             });
