@@ -40,24 +40,33 @@ class JogadorDAO {
         if (err) return callback(err)
         callback(null, results[0])
     })
+}  
+
+buscarJogadorId(id, callback) {
+  const sql = 'SELECT * FROM jogador WHERE id = ?'
+  this.connection.query(sql, [id], (err, results) => {
+      if (err) return callback(err)
+      callback(null, results[0])
+  })
 }
 
   atualizarJogador(id, jogador, callback) {
-    const sql = 'UPDATE jogador SET nome = ?, senha = ? WHERE nome = ?'
+    const sql = 'UPDATE jogador SET nome = ?, senha = ? WHERE id = ?'
     const valores = [jogador.nome, jogador.senha, id]
-    this.connection.query(sql, [id], (err, results) => {
+    this.connection.query(sql, valores, (err, results) => {
       if (err) return callback(err)
         callback(null, results[0])
     })
   }
 
-  deletarJogador(nome, jogador, callback) {
-    const sql = 'DELETE FROM jogador WHERE nome = ?'
-    this.connection.query(sql, [nome], (err, results) => {
-      if (err) return callback(err)
-        callback(null, results[0])
-    })
+  deletarJogador(id, callback) {
+    const sql = 'DELETE FROM jogador WHERE id = ?';
+    this.connection.query(sql, [id], (err, results) => {
+      if (err) return callback(err);
+      callback(null, results);
+    });
   }
+  
 
 }
 

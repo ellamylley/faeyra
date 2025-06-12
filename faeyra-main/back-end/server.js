@@ -42,7 +42,7 @@ app.use('/static', express.static(path.join(__dirname, '..', 'front-end')));
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: 'root',
     database: 'db'
 })
 
@@ -232,25 +232,59 @@ app.post('/comprar', verificarToken, (req, res) => {
 })
 
 // Atualizar jogador
-app.put('/jogadores/:id', (req, res) => {
-    const id = req.params.id;
-    const { nome, senha } = req.body;
-    const jogador = new Jogador(nome, senha)
+    app.put('/jogadores:id', (req, res) => {
+        const { nome, senha } = req.body;
+        const { id } = req.params;
+        console.log(nome, senha); 
+        
+        jogadorDAO.buscarJogadorId(id, (err, jogador) => {
+            if (err) {
+                console.error('Erro ao buscar jogador. ', err)
+                return res.status(500).json({ message: 'Erro ao buscar jogador' })
+            }
 
-    jogadorDAO.atualizarJogador(id, jogador, (err, results) => {
-        if (err) throw new err;
-        res.json({ message: 'Jogador atualizado' })
-    })
-})
+            if (!jogador) {
+                return res.status(400).json({ message: 'Jogador não encontrado.'})
+            }
+
+            jogadorDAO.atualizarJogador(id, { nome, senha }, (err) => {
+                if(err) {
+                    console.error('Erro ao atualizar jogador', err)
+                    return res.status(500).json({ message: 'Erro ao atualizar jogador'})
+                }
+
+                res.status(200).json({ message: 'Jogador alterado com sucesso.'})
+            })
+        })
+    
+    });
 
 // Deletar jogador
-app.delete('/jogadores/:id', (req, res) => {
+/* app.delete('/jogadores/:id', (req, res) => {
     const id = req.params.id
     jogadorDAO.deletarJogador(id, (err, results) => {
         if (err) throw new err;
         res.json({ message: 'Jogador deletado' })
     })
-})
+}) */
+
+    app.delete('/jogadores/:id', (req, res) => {
+        const id = req.params.id;
+    
+        jogadorDAO.deletarJogador(id, (err, results) => {
+            if (err) {
+                console.error('Erro ao deletar jogador:', err);
+                return res.status(500).json({ message: 'Erro ao deletar jogador.' });
+            }
+    
+            if (results.affectedRows === 0) {
+                return res.status(404).json({ message: 'Jogador não encontrado.' });
+            }
+    
+            res.status(200).json({ message: 'Jogador deletado com sucesso.' });
+        });
+    });
+    
 
 // Iniciar servidor
 const PORT = 3000

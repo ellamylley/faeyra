@@ -5,7 +5,7 @@ class ConnectionFactory {
         this.connection = mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password: '',
+            password: 'root',
             database: 'db'
         });
     }
