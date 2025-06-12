@@ -55,20 +55,18 @@
             <img>
         </div>
 
-        <a href="/faeyra-main/front-end/livro/livro.html">
-            <div id="livro">
-                <a href="/faeyra-main/front-end/livro/livro.html">
+        
+            <div id="livro" onclick="mostrarDiv('livroContainer')">
                 <img src="/faeyra-main/front-end/imagens/livro.png">
-                </a>
-        </div>
-        </a>
+            </div>
+        
 
         <div id="mensagemBoasVindas">
             <div id="boasVindas" style="display: flex;"></div>
             <div id="fecharBoasVindas" style="display: flex;" onclick="ocultarDiv('mensagemBoasVindas')">X</div>
         </div>
 
-        <button id="exibirEstoque" onclick="mostrarDiv('estoque')">ESTOQUE</button>
+        <div id="exibirEstoque" onclick="mostrarDiv('estoque')"></div>
         <div id="estoque" style="display: none;">
             <button id="fecharEstoque" onclick="ocultarDiv('estoque')">fechar</button>
 
@@ -107,7 +105,11 @@
             <div id="vida3" style="display: block;"><img src="/faeyra-main/front-end/imagens/logopequena.png"></div>
         </div>
 
-        <div id="dinheiro"></div>
+        <div id="dinheiroContainer">
+            <img src="/faeyra-main/front-end/imagens/logopequena.png">
+            <div id="dinheiro"></div>
+        </div>
+
 
         <div id="carrinho"></div>
 
@@ -122,24 +124,203 @@
 
 
 
-        <!-- <div id="end" style="display: none;">
-            <button onclick="finalizarAtendimento()">Finalizar atendimento</button>
-        </div> -->
+        <div id="fimDeJogo" style="display: none;">
+            <p>Ah não! Você perdeu</p>
+            <a href="/faeyra-main/front-end/paginaprincipal/paginaprincipal.html">
+                <button>Reiniciar</button>
+            </a>
+        </div>
 
 
-    </div>
-    <script src="../../front-end/front-functions/gerenciarCalculadora.js"></script>
-    <script src="../js/jogador.js"></script>
-    <script src="../js/resposta.js"></script>
-    <script src="../../front-end/front-functions/carregamento.js"></script>
-    <script src="../../front-end/front-functions/personagemFunctions.js"></script>
-    <script src="../../front-end/front-functions/mostrarDiv.js"></script>
-    <script src="../js/cliente.js"></script>
-    <script src="../js/pergunta.js"></script>
-    <script src="../js/resposta.js"></script>
-    <script src="../js/jogo.js"></script>
-    <script src="../js/produtos.js"></script>
-    <script src="../js/atendimento.js"></script>
+        <div id="livroContainer" style="display: none;">
+            <button onclick="ocultarDiv('livroContainer')" id="fechar" >Fechar</button></a>
+
+            <div id="livroPag">
+               <!-- <div id="fechamento" onclick="ocultarDiv('livroPag')">Fechar</div> -->
+                <div id="irParaPersonagem" onclick="mostrarDiv('p1')">Personagens</div>
+                <div id="irParaProdutos" onclick="mostrarDiv('prod')">Produtos</div>
+                
+            </div>
+
+
+            <div id='p1' style="display: none;">
+                <button type="button" onclick="ocultarDiv('p1')" id="f1">*</button>
+                <h1>Alina</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/1_feliz.png" alt="" class="clientes">
+                <p>Espécie: Bruxa</p>
+                <p> Sempre vai jogar um charme para tentar a melhor. Se não caírem em seus truques ela partirá para
+                    as
+                    ameaças.</p>
+                <div id="b1">
+                    <button id="bp1" class='proximo' type="submit" onclick="mostrarDiv('p2')">Próximo</button>
+                </div>
+            </div>
+
+            <div id="p2" style="display: none;">
+                <h1>Orlok</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/2_feliz.png" alt="" class="clientes">
+                <p>Espécie: Orc</p>
+                <p> Ser brutamontes e sem muita paciência, cada passo precisa ser dado com cuidado ao estar perto
+                    dele.
+                </p>
+                <div id="b2">
+                    <button id="ba2" class='voltar' type="submit" onclick="ocultarDiv('p2')">Voltar</button>
+                    <button id="bp2" class='proximo' type="submit" onclick="mostrarDiv('p3')">Próximo</button>
+                </div>
+            </div>
+
+
+            <div id="p3" style="display: none;">
+                <h1>Aurius</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/3_feliz.png" alt="" class="clientes">
+                <p>Espécie: Serafim</p>
+                <p>Indiferente, mas não queira vê-lo sem paciência.</p>
+                <div id="b3">
+                    <button id="ba3" class='voltar' type="submit" onclick="ocultarDiv('p3')">Voltar</button>
+                    <button id="bp3" class='proximo' type="submit" onclick="mostrarDiv('p4')">Próximo</button>
+                </div>
+            </div>
+
+
+            <div id="p4" style="display: none;">
+                <h1>Kright</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/4_feliz.png" alt="" class="clientes">
+                <p>Espécie: Goblin</p>
+                <p>Conhecido por tentar passar a perna na maioria dos vendedores. Tome cuidado para não cair em suas
+                    conversas.
+                </p>
+                <div id="b4">
+                    <button id="ba4" class='voltar' type="submit" onclick="ocultarDiv('p4')">Voltar</button>
+                    <button id="bp4" class='proximo' type="submit" onclick="mostrarDiv('p5')">Próximo</button>
+                </div>
+            </div>
+
+            <div id="p5" style="display: none;">
+                <h1>Lancelot</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/5_feliz.png" alt="" class='clientes'>
+                <p>Espécie: Elfo</p>
+                <p> Bonito e sereno, mas também muito impaciente e difícil de agradar.</p>
+                <div id="b5">
+                    <button id="ba5" class='voltar' type="submit" onclick="ocultarDiv('p5')">Voltar</button>
+                    <button id="bp5" class='proximo' type="submit" onclick="mostrarDiv('p6')">Próximo</button>
+                </div>
+            </div>
+
+
+            <div id="p6" style="display: none;">
+                <h1>Kayph</h1>
+                <img src="/faeyra-main/front-end/imagens/clientes/6_feliz.png" alt="" class="clientes">
+                <p>Espécie: Kobold</p>
+                <p> Brincalhão e animado. Difícil de irritar.</p>
+                <div id="b6">
+                    <button id="ba6" class='voltar' type="submit" onclick="ocultarDiv('p6')">Voltar</button>
+
+                </div>
+            </div>
+
+            <div id="prod" style="display: none;">
+                <button id="fecha" type="submit" onclick="ocultarDiv('prod')">X</button>
+                <div id="pr1">
+                    <p>Adaga</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/1.png" alt="">
+                        <figcaption>46 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr2">
+                    <p>Asas de morcego</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/2.png" alt="">
+                        <figcaption>32 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr3">
+                    <p>Caldeirão</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/3.png" alt="">
+                        <figcaption>50 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr4">
+                    <p>Frascos</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/4.png" alt="">
+                        <figcaption>19 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr5">
+                    <p>Olhos de serafim</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/5.png" alt="">
+                        <figcaption>70 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr6">
+                    <p>Crânio de tiefling</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/6.png" alt="">
+                        <figcaption>55 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr7">
+                    <p>Dente de orc</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/7.png" alt="">
+                        <figcaption>20 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr8">
+                    <p>Chifre de minotauro</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/8.png" alt="">
+                        <figcaption>86 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr9">
+                    <p>Anis estrelado</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/9.png" alt="">
+                        <figcaption>10 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr10">
+                    <p>Escama de kobold</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/10.png" alt="">
+                        <figcaption>34 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr11">
+                    <p>Escudo</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/11.png" alt="">
+                        <figcaption>97 Citrinos</figcaption>
+                    </figure>
+                </div>
+                <div id="pr12">
+                    <p>Flechas</p>
+                    <figure>
+                        <img src="/faeyra-main/front-end/imagens/produtos/12.png" alt="">
+                        <figcaption>15 Citrinos</figcaption>
+                    </figure>
+                </div>
+
+            </div>
+
+
+        </div>
+        <script src="../../front-end/front-functions/gerenciarCalculadora.js"></script>
+        <script src="../js/jogador.js"></script>
+        <script src="../js/resposta.js"></script>
+        <script src="../../front-end/front-functions/carregamento.js"></script>
+        <script src="../../front-end/front-functions/personagemFunctions.js"></script>
+        <script src="../../front-end/front-functions/mostrarDiv.js"></script>
+        <script src="../js/cliente.js"></script>
+        <script src="../js/pergunta.js"></script>
+        <script src="../js/resposta.js"></script>
+        <script src="../js/jogo.js"></script>
+        <script src="../js/produtos.js"></script>
+        <script src="../js/atendimento.js"></script>
 
 </body>
 

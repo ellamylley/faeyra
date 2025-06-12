@@ -88,8 +88,14 @@ function pedirProdutoAleatorio() {
 function verificarPedido() {
     const totalCarrinho = atualizarTotal();
     const valorDigitado = parseFloat(document.getElementById('valorTotal').value);
-    const valorCarrinhoCorreto = totalCarrinho === pedidoAtualPreco;
-    const valorDigitadoCorreto = valorDigitado === pedidoAtualPreco;
+    const valorCarrinhoCorreto = Math.round(totalCarrinho * 100) === Math.round(pedidoAtualPreco * 100);
+    const valorDigitadoCorreto = Math.round(valorDigitado * 100) === Math.round(pedidoAtualPreco * 100)
+    console.log(pedidoAtualPreco);
+    console.log(totalCarrinho);
+    console.log(valorDigitado);
+
+    
+    ;
 
     if (valorCarrinhoCorreto && valorDigitadoCorreto) {
         satisfacaoAtual +=20;
@@ -112,7 +118,7 @@ function verificarPedido() {
     document.getElementById('valorTotal').value = '';
     ocultarDiv('carrinho');
     ocultarDiv('caixaRegistradora');
-    buscarPergunta();
+    if (!satisfacaoAtual == 0) buscarPergunta();
 }
 
 

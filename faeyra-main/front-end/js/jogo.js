@@ -17,25 +17,28 @@ function atualizarVidas() {
 
 
 function clienteFoiEmbora() {
-  ocultarDiv('respostas');
+  mostrarDiv('pergunta');
   respostaFinal();
   vidas--;
   atualizarVidas();
 
   if (vidas <= 0) {
-    mostrarDiv("telaFimdeJogo");
+    mostrarDiv("fimDeJogo");
   } else {
-    finalizarAtendimento();
+    setTimeout(finalizarAtendimento, 2000
+    )
   }
 
 }
 
 
 function respostaFinal() {
-  mostrarDiv('pergunta')
+  mostrarDiv('pergunta');
   if (satisfacaoAtual < 40) {
-    document.getElementById('pergunta').textContent = `Nunca mais volto aqui`;
+    console.log("NUNCa mais volto aqui")
+    document.getElementById('pergunta').textContent = `Quer me dar um golpe? Eu vou embora`;
   } else {
+    console.log("obrigada")
     document.getElementById('pergunta').textContent = `Obrigado`;
   }
 }

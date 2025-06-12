@@ -45,6 +45,7 @@ INSERT INTO `cliente` (`id_cliente`, `id_especie`, `nome_cliente`, `satisfacao_a
 (4, 4, 'Kright', NULL),
 (5, 5, 'Lancelot', NULL),
 (6, 6, 'Kayph', NULL);
+(7, 7, 'Rubens', NULL)
 
 -- --------------------------------------------------------
 

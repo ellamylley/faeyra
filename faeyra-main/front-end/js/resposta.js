@@ -15,7 +15,10 @@ function buscarRespostas(idPergunta) {
             divResposta.onclick = () => {
 
               atualizarExpressaoCliente(satisfacaoAtual);
-              finalizarAtendimento();
+              respostaFinal();
+              setTimeout(finalizarAtendimento, 2000
+              )
+              
             };
 
           } else {

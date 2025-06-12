@@ -7,7 +7,7 @@ document.getElementById('formularioCadastro').addEventListener('submit', async f
   const dados = {
     nome: nome,
     senha: senha,
-    dinheiro: 100.00,
+    dinheiro: 0.00,
     chances: 3
   }
 

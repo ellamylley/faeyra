@@ -11,6 +11,7 @@ function iniciarAtendimento() {
 }
 
 function finalizarAtendimento() {
+  
   ocultarDiv('pergunta');
   ocultarDiv('respostas');
   moverPersonagem('sair', () => {

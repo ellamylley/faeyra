@@ -23,7 +23,7 @@ img{
 #p5,
 #p6{
     position: fixed;
-    background-color: antiquewhite;
+    background-color: rgb(241, 215, 181) ;
     padding: 55px;
     border-radius: 20px;
     margin-left: 25%;
@@ -35,10 +35,13 @@ img{
 }
 h1{
  font-family: Railey;
+ padding-left: 10px;
+ padding-right: 5px
 }
 p{
     font-family: Aubrey;
-    font-size: 25px;
+    font-size: 20px;
+    padding: 10px;;
 }
 #folha{
 background-color: aquamarine;
@@ -58,4 +61,18 @@ flex-direction: row
     background-color: antiquewhite;
     margin-left: 20%;
     margin-right: 20%;
+}
+
+.clientes {
+    padding: 10px
+}
+
+.proximo,.voltar {
+    border-radius: 15px;
+    margin: 2px;
+    size: 5px;
+    padding: 10px;
+    border-color: rgb(31, 66, 34);
+    background-color: rgb(161, 209, 165);
+    color: rgb(44, 43, 42)
 }
