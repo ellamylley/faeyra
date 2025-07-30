@@ -55,11 +55,11 @@
             <img>
         </div>
 
-        
-            <div id="livro" onclick="mostrarDiv('livroContainer')">
-                <img src="/faeyra-main/front-end/imagens/livro.png">
-            </div>
-        
+
+        <div id="livro" onclick="mostrarDiv('livroContainer')">
+            <img src="/faeyra-main/front-end/imagens/livro.png">
+        </div>
+
 
         <div id="mensagemBoasVindas">
             <div id="boasVindas" style="display: flex;"></div>
@@ -133,15 +133,18 @@
 
 
         <div id="livroContainer" style="display: none;">
-            <button onclick="ocultarDiv('livroContainer')" id="fechar" >Fechar</button></a>
+            <button onclick="ocultarDiv('livroContainer')" id="fechar">Fechar</button></a>
 
             <div id="livroPag">
-               <!-- <div id="fechamento" onclick="ocultarDiv('livroPag')">Fechar</div> -->
-                <div id="irParaPersonagem" onclick="mostrarDiv('p1')">Personagens</div>
-                <div id="irParaProdutos" onclick="mostrarDiv('prod')">Produtos</div>
-                
+                <div id="irParaPersonagem" onclick="mostrarDiv('p1')">
+                    <h1>Personagens</h1>
+                    <p>Clique aqui para visualizar informações sobre cada cliente</p>
+                </div>
+                <div id="irParaProdutos" onclick="mostrarDiv('prod')">
+                    <h1>Produtos</h1>
+                    <p>Clique aqui para visualizar informações sobre cada produto</p>
+                </div>
             </div>
-
 
             <div id='p1' style="display: none;">
                 <button type="button" onclick="ocultarDiv('p1')" id="f1">*</button>
@@ -219,88 +222,88 @@
             </div>
 
             <div id="prod" style="display: none;">
-                <button id="fecha" type="submit" onclick="ocultarDiv('prod')">X</button>
-                <div id="pr1">
+                <button id="fecharProduto" type="submit" onclick="ocultarDiv('prod')">X</button>
+                <div id="pr1" class="catalogoProduto">
                     <p>Adaga</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/1.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/1.png" alt="Adaga">
                         <figcaption>46 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr2">
+                <div id="pr2" class="catalogoProduto">
                     <p>Asas de morcego</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/2.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/2.png" alt="Asas de morcego">
                         <figcaption>32 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr3">
+                <div id="pr3" class="catalogoProduto">
                     <p>Caldeirão</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/3.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/3.png" alt="Caldeirão">
                         <figcaption>50 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr4">
+                <div id="pr4" class="catalogoProduto">
                     <p>Frascos</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/4.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/4.png" alt="Frascos">
                         <figcaption>19 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr5">
+                <div id="pr5" class="catalogoProduto">
                     <p>Olhos de serafim</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/5.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/5.png" alt="Olhos de serafim">
                         <figcaption>70 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr6">
+                <div id="pr6" class="catalogoProduto">
                     <p>Crânio de tiefling</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/6.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/6.png" alt="Crânio de tiefling">
                         <figcaption>55 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr7">
+                <div id="pr7" class="catalogoProduto">
                     <p>Dente de orc</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/7.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/7.png" alt="Dente de orc">
                         <figcaption>20 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr8">
+                <div id="pr8" class="catalogoProduto">
                     <p>Chifre de minotauro</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/8.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/8.png" alt="Chifre de minotauro">
                         <figcaption>86 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr9">
+                <div id="pr9" class="catalogoProduto">
                     <p>Anis estrelado</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/9.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/9.png" alt="Anis estrelado">
                         <figcaption>10 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr10">
+                <div id="pr10" class="catalogoProduto">
                     <p>Escama de kobold</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/10.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/10.png" alt="Escama de kobold">
                         <figcaption>34 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr11">
+                <div id="pr11" class="catalogoProduto">
                     <p>Escudo</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/11.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/11.png" alt="Escudo">
                         <figcaption>97 Citrinos</figcaption>
                     </figure>
                 </div>
-                <div id="pr12">
+                <div id="pr12" class="catalogoProduto">
                     <p>Flechas</p>
                     <figure>
-                        <img src="/faeyra-main/front-end/imagens/produtos/12.png" alt="">
+                        <img src="/faeyra-main/front-end/imagens/produtos/12.png" alt="Flechas">
                         <figcaption>15 Citrinos</figcaption>
                     </figure>
                 </div>

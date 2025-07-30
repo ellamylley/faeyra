@@ -42,7 +42,7 @@ app.use('/static', express.static(path.join(__dirname, '..', 'front-end')));
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '',
     database: 'db'
 })
 
